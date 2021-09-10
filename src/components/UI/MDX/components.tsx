@@ -1,0 +1,121 @@
+import React from 'react';
+import type {
+  HeadingAttr,
+  HrAttr,
+  CommonAttr,
+  BlockquoteAttr,
+  OlAttr,
+  UlAttr,
+  LiAttr,
+  PAttr,
+  ImgAttr,
+  AAttr,
+} from './mdxType.d';
+import {
+  Text,
+  Link,
+  Heading,
+  Flex,
+  UnorderedList,
+  ListItem,
+  OrderedList,
+  Code,
+  Divider,
+} from '@chakra-ui/layout';
+import { useColorModeValue } from '@chakra-ui/color-mode';
+import { chakra } from '@chakra-ui/system';
+import { ChakraNextImage } from '@components/UI/ChakraNextImage';
+import { loader } from '@lib/imageLoader';
+
+const StyledColorModeAnchor = (props: AAttr) => {
+  const color = useColorModeValue('blue.500', 'blue.200');
+  return (
+    <Link
+      {...props}
+      isExternal
+      fontSize={['1rem', '1rem', '1rem', '1.2rem']}
+      lineHeight="40px"
+      letterSpacing="1px"
+      color={color}
+      fontWeight="900"
+    />
+  );
+};
+
+export const mdxComponents = {
+  h1: (props: HeadingAttr) => (
+    <Heading as="h1" fontSize="3rem" mt="2rem" fontWeight="900" {...props} />
+  ),
+  h2: (props: HeadingAttr) => (
+    <Heading as="h2" fontSize="2.75rem" mt="2rem" fontWeight="800" {...props} />
+  ),
+  h3: (props: HeadingAttr) => (
+    <Heading as="h3" fontSize="2.5rem" mt="2rem" fontWeight="700" {...props} />
+  ),
+  h4: (props: HeadingAttr) => (
+    <Heading as="h4" fontSize="2.25rem" mt="2rem" fontWeight="700" {...props} />
+  ),
+  h5: (props: HeadingAttr) => (
+    <Heading as="h5" fontSize="2rem" mt="2rem" fontWeight="700" {...props} />
+  ),
+  h6: (props: HeadingAttr) => (
+    <Heading as="h6" fontSize="1.75rem" mt="2rem" fontWeight="700" {...props} />
+  ),
+  strong: (props: CommonAttr) => (
+    <chakra.strong {...props} textShadow=".8px 0px #2D3748" />
+  ),
+  hr: (props: HrAttr) => <Divider {...props} my="5rem" w="90%" mx="auto" />,
+  code: (props: CommonAttr) => <Code {...props} px=".8rem" colorScheme="red" />,
+  blockquote: (props: BlockquoteAttr) => (
+    <chakra.blockquote
+      {...props}
+      borderLeftWidth=".5rem"
+      p="1rem 1rem 1rem 1.5rem"
+      mr="2rem"
+      my="2rem"
+      bg="gray.50"
+    />
+  ),
+  ul: (props: UlAttr) => <UnorderedList {...props} mt="2rem" />,
+  ol: (props: OlAttr) => <OrderedList {...props} mt="2rem" />,
+  li: (props: LiAttr) => (
+    <ListItem
+      {...props}
+      ml="1rem"
+      pl=".5rem"
+      fontSize="1.2rem"
+      lineHeight="40px"
+      letterSpacing="1px"
+    />
+  ),
+  p: (props: PAttr) => (
+    <Text
+      fontSize={['1rem', '1rem', '1rem', '1.2rem']}
+      lineHeight="35px"
+      letterSpacing=".8px"
+      _notFirst={{
+        marginTop: '2rem',
+      }}
+      {...props}
+    />
+  ),
+  a: StyledColorModeAnchor,
+  img: (props: ImgAttr) => (
+    <Flex mt={10} justifyContent="center" alignSelf="center">
+      <ChakraNextImage
+        src={props.src || 'https://via.placeholder.com'}
+        placeholder="blur"
+        blurDataURL={props.src || 'https://via.placeholder.com'}
+        width={600}
+        height={300}
+        w="auto"
+        h="auto"
+        mx="auto"
+        layout="responsive"
+        objectFit="contain"
+        loader={loader}
+        alt={`${props.alt}`}
+      />
+    </Flex>
+  ),
+};
