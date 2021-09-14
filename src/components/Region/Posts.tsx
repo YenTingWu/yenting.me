@@ -49,7 +49,7 @@ export const Posts: React.FC<PostsProps> = ({
             href="/posts"
             fontFamily="Cutive Mono, monospace"
             fontSize="1rem"
-            my="5"
+            mt="5"
             alignSelf="center"
             color="black"
           >

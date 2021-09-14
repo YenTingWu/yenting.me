@@ -6,9 +6,7 @@ interface FooterProps {
   mediaQuery: MediaObject;
 }
 
-export const Footer: React.FC<FooterProps> = ({
-  mediaQuery: { isLargerThan500 },
-}) => (
+export const Footer: React.FC<FooterProps> = ({}) => (
   <Flex
     sx={{ '*': { fontFamily: 'Cutive Mono, monospace' } }}
     w="100%"
@@ -25,17 +23,20 @@ export const Footer: React.FC<FooterProps> = ({
       fontSize="1rem"
       mx="1rem"
       px="1rem"
-      flexDir={isLargerThan500 ? 'row' : 'column'}
+      flexDir={['column', 'column', 'column', 'row']}
       alignItems="center"
     >
       <Text>&copy; {new Date().getFullYear()} Yen-Ting Wu</Text>
 
-      <HStack spacing="10">
+      <HStack spacing="10" mt={['1rem', '1rem', '1rem', 0]}>
         <Link href="https://github.com/YenTingWu" isExternal>
           Github
         </Link>
         <Link href="https://twitter.com/YenTing09677393" isExternal>
           Twitter
+        </Link>
+        <Link href="mailTo:a9600125a@gmail.com" isExternal>
+          Email
         </Link>
       </HStack>
     </Flex>

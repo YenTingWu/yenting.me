@@ -43,6 +43,7 @@ const Slug: NextPage<SlugProps> = ({
       <HeadController title={title} description={description} />
       <ChakraNextImage
         src={image}
+        blurDataURL={image}
         alt="cover_image"
         width={800}
         height={500}
@@ -50,6 +51,7 @@ const Slug: NextPage<SlugProps> = ({
         h="auto"
         layout="responsive"
         objectFit="contain"
+        placeholder="blur"
       />
       <Box
         alignSelf="center"

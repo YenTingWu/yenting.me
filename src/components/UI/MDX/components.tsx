@@ -42,6 +42,21 @@ const StyledColorModeAnchor = (props: AAttr) => {
   );
 };
 
+const StyledBgModeBlockQuote = (props: BlockquoteAttr) => {
+  const bg = useColorModeValue('gray.50', 'gray.700');
+
+  return (
+    <chakra.blockquote
+      {...props}
+      borderLeftWidth=".5rem"
+      p="1rem 1rem 1rem 1.5rem"
+      mr="2rem"
+      my="2rem"
+      bg={bg}
+    />
+  );
+};
+
 export const mdxComponents = {
   h1: (props: HeadingAttr) => (
     <Heading as="h1" fontSize="3rem" mt="2rem" fontWeight="900" {...props} />
@@ -66,16 +81,7 @@ export const mdxComponents = {
   ),
   hr: (props: HrAttr) => <Divider {...props} my="5rem" w="90%" mx="auto" />,
   code: (props: CommonAttr) => <Code {...props} px=".8rem" colorScheme="red" />,
-  blockquote: (props: BlockquoteAttr) => (
-    <chakra.blockquote
-      {...props}
-      borderLeftWidth=".5rem"
-      p="1rem 1rem 1rem 1.5rem"
-      mr="2rem"
-      my="2rem"
-      bg="gray.50"
-    />
-  ),
+  blockquote: StyledBgModeBlockQuote,
   ul: (props: UlAttr) => <UnorderedList {...props} mt="2rem" />,
   ol: (props: OlAttr) => <OrderedList {...props} mt="2rem" />,
   li: (props: LiAttr) => (

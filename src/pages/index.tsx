@@ -37,7 +37,7 @@ const Home: NextPage<HomeProps> = ({ metadata }) => {
     <PageDefaultLayout media={mediaValue}>
       <HeadController />
       <Profile media={mediaValue} />
-      <Divider alignSelf="center" my="20" width="90%" />
+      <Divider alignSelf="center" mt="3rem" mb="4rem" width="90%" />
       <Posts
         media={mediaValue}
         metadata={recent2Metadata}
