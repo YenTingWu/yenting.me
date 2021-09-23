@@ -26,7 +26,7 @@ export const Posts: React.FC<PostsProps> = ({
         >
           Recent Posts
         </Heading>
-        <Box mx="auto" py="10">
+        <Box alignItems="flex-start" mx="auto" py="10">
           {useMemo(
             () =>
               metadata.map(

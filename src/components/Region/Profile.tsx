@@ -43,7 +43,7 @@ export const Profile: React.FC<ProfileProps> = ({
           ml={isLargerThan900 ? '20' : 'auto'}
           mt={isLargerThan900 ? '0' : '10'}
           px="5"
-          maxW="600px"
+          maxW="580px"
           w="100%"
           wordBreak="break-word"
           align="start"
@@ -74,8 +74,8 @@ export const Profile: React.FC<ProfileProps> = ({
           </HStack>
           <VStack alignItems="flex-start" spacing="3" fontSize="1.2rem">
             <Text>
-              Hi, my name is YenTing, who enjoys building things and keeping it
-              simple.
+              Hi, my name is YenTing, who enjoys building things and keeping
+              things simple.
             </Text>
             <Text>
               {' '}
@@ -88,17 +88,15 @@ export const Profile: React.FC<ProfileProps> = ({
               >
                 StarkTech
               </Link>{' '}
-              as UI engineer on building web and mobile app with react.
+              as UI engineer on building web and mobile apps with react.
             </Text>
             <Text>
               This blog serves as a place for me to practice my expression and
               remember my steps in the tech infinity.
             </Text>
             <Text>
-              Currently looking for a role as UI engineer,{' '}
-              {/* <Box as="span" bg="blue.800" fontWeight="900"> */}
-              hire me?
-              {/* </Box> */}
+              Currently looking for a role as UI engineer,
+              <strong> hire me?</strong>
             </Text>
           </VStack>
         </VStack>

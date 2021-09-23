@@ -59,12 +59,13 @@ const Slug: NextPage<SlugProps> = ({
         w="100%"
         px="10"
         wordBreak="break-word"
-        maxW="750px"
+        maxW="850px"
       >
         <Heading
+          as="h1"
           fontSize={['4xl', '4xl', '4xl', '5xl']}
           mt={['1rem', '1rem', '1rem', '2rem']}
-          mb={['2rem', '2rem', '2rem', '4rem']}
+          mb={['1.5rem', '1.5rem', '1.5rem', '3rem']}
         >
           {title}
         </Heading>
