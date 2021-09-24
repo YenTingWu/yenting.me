@@ -1,5 +1,5 @@
 ---
-title: 'Snapshot of Procrastination - Why and Web Structure '
+title: 'Snapshot of Procrastination'
 description: "In this article, I'll share how I built this web application, procrastination, and the props and cons of the tech stack I chose"
 publishedAt: '2021-09-30'
 image: 'https://images.unsplash.com/photo-1631084948908-1b921a1a59cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop'
@@ -32,12 +32,12 @@ I considered my tech stack based on one thing only:
 
 ## Web
 
-As an UI engineer, I'm more familiar with the web developement. I'll separate it into four parts:
+Since I'm more familiar with the client side, I'll dig more detail in this part and separate it into four parts:
 
-- web library and framework
-- style
-- state management
-- other
+- Web Library and Framework
+- Style
+- State Management
+- Other
 
 to explain how I built the site and talk about the pros and cons.
 
@@ -59,13 +59,13 @@ However, my experience of Gatsby wasn't really good. Those fucking confusing con
 
 As their landing page said, Next.js actually gave me the best developer experience especially for couple reasons:
 
-- Compared to a plain react app, the entire app structure doesn't change a lot. If you are already a React developer, you can learn Next with a slight learing curve.
-- It provides an easy way to set up typescript, CSS-in-JS library, storybook, testing library, webpack, babel and eslint.
-- It provides apis to improve the optimization, such as [Image tag](https://nextjs.org/docs/api-reference/next/image) and [AMP support](https://nextjs.org/docs/advanced-features/amp-support/introduction) and some for [flexible data fetching](<(https://nextjs.org/docs/basic-features/data-fetching)>) in different situations.
+- **The entire app structure doesn't change a lot from a plain react app**. If you are already a React developer, you can learn Next with a slight learing curve.
+- It provides an easy way to set up **typescript, CSS-in-JS, storybook, testing, webpack, babel and eslint**.
+- It provides apis to improve the optimization, including [Image tag](https://nextjs.org/docs/api-reference/next/image) and [AMP support](https://nextjs.org/docs/advanced-features/amp-support/introduction) and some for [flexible data fetching](<(https://nextjs.org/docs/basic-features/data-fetching)>) in different situations.
 
 - Oh, and [Fast Refresh](https://nextjs.org/docs/basic-features/fast-refresh) is the best part. While building the Next app, most edits will be visible within a second, without losing component state. This was so smooth that I didn't noticed it until I was building a Svelte app. It was pretty irritatting Svelte reset all my state when I changed somthing in my code.
 
-Next really gave me a great experience and it might be my top first priority in the future when I want to build either a server-side rendering app or a hybrid static app.
+Next.js really gave me a great experience and it might be my top first priority in the future when I want to build either a server-side rendering app or a hybrid static app.
 
 ##### Style Library
 
@@ -155,3 +155,36 @@ But the drawback is the inconprehensive document. Some information might be insu
 While [Deno and Svelte are moving away Typescript from their internals due to build times and code complexity](https://twitter.com/swyx/status/1350427690814251010/photo/1), Typescript is still my favorite.
 
 Typescript really helps me with my speed and accuracy. Thanks for the greate integration typescript and vscode, I don't need to console variables out to know what the data structure is. All I need to do is to hover on the variable and the data type shows.
+
+###### D3
+
+###### React-Beautiful-DND
+
+## Server & Cloud
+
+###### TypeORM
+
+TypeORM is an **Object Relational Mapper** library running in node.js. It supports javscript and typescript.
+
+I have not much experience with ORM and SQL. It was really confusing for me that people used different apis to do literally the same thing. I didn't know what I should follow, so whatever was workable was fine for me and both patterns are in my codebase now. Apprentlly, I didn't read the doc clearly. While writing this article, I found out there are two different patterns, [Active Record and Data Mapper](https://typeorm.io/#/active-record-data-mapper/which-one-should-i-choose).
+
+This is my first time of using ORM. I've only used Knex as database before and I think:
+
+- **More Declarative** -
+  The **virtual object database** is really helpful for me to read the code.
+
+- **Less Complexity** -
+  When using Knex, it was a lot of nested functions whereas ORM is much clearer for me to understand which column I'm working on.
+
+But I actually don't like TypeORM because the lakc of docs. [Prisma](https://www.prisma.io/) might be the next ORM I would like to play around with.
+
+###### Digital Ocean
+
+I put my server code and database in 2GB droplets. And _I keep facing different server errors I've never met before. Every time I made it work, not in few days, it broke again._
+
+Just want to record errors I met this time:
+
+- cert key net::err_cert_invalid
+-
+
+###### Docker

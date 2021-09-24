@@ -10,6 +10,7 @@ import type {
   PAttr,
   ImgAttr,
   AAttr,
+  PreAttr,
 } from './mdxType.d';
 import {
   Text,
@@ -21,6 +22,7 @@ import {
   OrderedList,
   Divider,
 } from '@chakra-ui/layout';
+import type { HeadingProps } from '@chakra-ui/layout';
 import { useColorModeValue } from '@chakra-ui/color-mode';
 import { chakra } from '@chakra-ui/system';
 import { ChakraNextImage } from '@components/UI/ChakraNextImage';
@@ -57,39 +59,90 @@ const StyledBgModeBlockQuote = (props: BlockquoteAttr) => {
   );
 };
 
+const StyledHeading = (props: Omit<HeadingProps, 'fontFamily'>) => (
+  <Heading fontFamily="Cutive Mono, monospace" {...props} />
+);
+
+const StyledPre = (props: PreAttr) => (
+  <chakra.pre {...props} overflow="scroll" maxW="calc(100vw - 40px)" />
+);
+
 export const mdxComponents = {
   h1: (props: HeadingAttr) => (
-    <Heading as="h1" fontSize="2.5rem" my="3rem" fontWeight="900" {...props} />
+    <StyledHeading
+      as="h1"
+      fontSize="3rem"
+      mt="3rem"
+      mb="2rem"
+      fontWeight="900"
+      {...props}
+    />
   ),
   h2: (props: HeadingAttr) => (
-    <Heading as="h2" fontSize="2.25rem" my="3rem" fontWeight="800" {...props} />
+    <StyledHeading
+      as="h2"
+      fontSize="2.75rem"
+      mt="3rem"
+      mb="2rem"
+      fontWeight="800"
+      {...props}
+    />
   ),
   h3: (props: HeadingAttr) => (
-    <Heading as="h3" fontSize="2rem" my="3rem" fontWeight="700" {...props} />
+    <StyledHeading
+      as="h3"
+      fontSize="2.5rem"
+      mt="3rem"
+      mb="2rem"
+      fontWeight="700"
+      {...props}
+    />
   ),
   h4: (props: HeadingAttr) => (
-    <Heading as="h4" fontSize="1.75rem" my="3rem" fontWeight="700" {...props} />
+    <StyledHeading
+      as="h4"
+      fontSize="2.25rem"
+      mt="3rem"
+      mb="2rem"
+      fontWeight="700"
+      {...props}
+    />
   ),
   h5: (props: HeadingAttr) => (
-    <Heading as="h5" fontSize="1.5rem" my="3rem" fontWeight="700" {...props} />
+    <StyledHeading
+      as="h5"
+      fontSize="2rem"
+      mt="3rem"
+      mb="2rem"
+      fontWeight="700"
+      {...props}
+    />
   ),
   h6: (props: HeadingAttr) => (
-    <Heading as="h6" fontSize="1.25rem" my="3rem" fontWeight="700" {...props} />
+    <StyledHeading
+      as="h6"
+      fontSize="1.5rem"
+      mt="3rem"
+      mb="1.5rem"
+      fontWeight="700"
+      {...props}
+    />
   ),
   strong: (props: CommonAttr) => (
     <chakra.strong {...props} textShadow=".8px 0px #2D3748" />
   ),
   hr: (props: HrAttr) => <Divider {...props} my="5rem" w="90%" mx="auto" />,
   code: CodeBlock,
+  pre: StyledPre,
   blockquote: StyledBgModeBlockQuote,
-  ul: (props: UlAttr) => <UnorderedList {...props} mt="2rem" />,
-  ol: (props: OlAttr) => <OrderedList {...props} mt="2rem" />,
+  ul: (props: UlAttr) => <UnorderedList {...props} my="1rem" />,
+  ol: (props: OlAttr) => <OrderedList {...props} my="3rem" />,
   li: (props: LiAttr) => (
     <ListItem
       {...props}
       ml="1rem"
       pl=".5rem"
-      mb="1rem"
+      mb=".5rem"
       fontSize={['.9rem', '.9rem', '.9rem', '1rem']}
       lineHeight="40px"
       letterSpacing="1px"
@@ -101,7 +154,7 @@ export const mdxComponents = {
       lineHeight="35px"
       letterSpacing=".8px"
       _notFirst={{
-        marginTop: '2rem',
+        marginTop: '1rem',
       }}
       {...props}
     />

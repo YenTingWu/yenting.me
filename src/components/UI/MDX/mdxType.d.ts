@@ -57,3 +57,8 @@ export declare type HrAttr = DetailedHTMLProps<
   HTMLAttributes<HTMLHRElement>,
   HTMLHRElement
 >;
+
+export declare type PreAttr = DetailedHTMLProps<
+  HTMLAttributes<HTMLPreElement>,
+  HTMLPreElement
+>;
