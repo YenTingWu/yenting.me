@@ -6,10 +6,10 @@ import { bundleMDX } from 'mdx-bundler';
 import gfmRemark from 'remark-gfm';
 import slugRemark from 'remark-slug';
 import compareDesc from 'date-fns/fp/compareDesc';
-import { PostMetadata } from '@types';
+import type { PostMetadata } from '@types';
 
 const ROOT = process.cwd();
-const postsFolder = path.join(ROOT, 'src', 'posts');
+const postsFolder = path.join(ROOT, 'posts');
 
 export const getAllMetaData = () => {
   const postFilePaths = glob.sync(path.join(postsFolder, '*.mdx'));
