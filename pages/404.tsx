@@ -28,7 +28,7 @@ const NotFound: NextPage<NotFoundProps> = () => {
 
   return (
     <PageDefaultLayout media={mediaValue}>
-      <HeadController />
+      <HeadController title="Not Found" />
       <Flex
         flex="1"
         flexDir="column"

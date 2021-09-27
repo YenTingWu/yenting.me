@@ -28,7 +28,8 @@ Before this studying time, it had never been so happy for me. I tried bunch of l
 I considered my tech stack based on one thing only:
 
 - **Unexperienced** - I wanted to try new libraries I had never used in a project before.
-- **Cool** - They should fulfill the cool-kid's spirit inside the very bottom of my heart.
+
+- **Cool** - It should fulfill the cool kid's spirit inside the very bottom of my heart.
 
 ## Web
 
@@ -65,7 +66,7 @@ As their landing page said, Next.js actually gave me the best developer experien
 
 - Oh, and [Fast Refresh](https://nextjs.org/docs/basic-features/fast-refresh) is the best part. While building the Next app, most edits will be visible within a second, without losing component state. This was so smooth that I didn't noticed it until I was building a Svelte app. It was pretty irritatting Svelte reset all my state when I changed somthing in my code.
 
-Next.js really gave me a great experience and it might be my top first priority in the future when I want to build either a server-side rendering app or a hybrid static app.
+Next.js really gave me a great experience and it might be my top first priority in the future when I want to build either a server-side rendering app. While I'd like to choose Svelte for a small static-first project.
 
 ##### Style Library
 
@@ -180,11 +181,74 @@ But I actually don't like TypeORM because the lakc of docs. [Prisma](https://www
 
 ###### Digital Ocean
 
-I put my server code and database in 2GB droplets. And _I keep facing different server errors I've never met before. Every time I made it work, not in few days, it broke again._
+I had no CS background and never fully understood what memory or disk is. Also, I had been curious about how it cost for running a cloud server. Due to the reason above, I tried to run a server instead of using serverless database.
 
-Just want to record errors I met this time:
+At first, I ran a 1GB of RAM droplets for my server and DB. While setting up, I surprisely found out that it already cost 1.3GB for only my node server code. And I changed the project to 2GB of RAM. But after storing some data into DB, RAM issues came out again.
 
-- cert key net::err_cert_invalid
--
+I'm still figuring out what is the best solution for me. Currently my take away is not put DB in the droplet. It's kind of ridiculous.
 
 ###### Docker
+
+When starting approaching web developement, I kept hearing about Docker container and Kubernetes. That definitely arose my FOMO. It seemed like that everyone knows about the technique. I had tried it once before but that was a catastrophe, and it's time to refight the battle.
+
+Docker, from my understanding, is a software platform that packages solfware into a unit, which is called container. A container provides the all it needs to run the solfware. In this case, we can run the container on any environment. That could make deploying and scaling applications more quickly and easier.
+
+It really makes me set up all environment to run my node server and DB so simple. All it need is to write few lines code in Dockerfile and docker-compose and you can set up the environment. Besides, you are able to access different files depending on different environment, like developement, staging or production.
+
+**Dockerfile**
+
+```Dockerfile
+FROM node:14
+
+WORKDIR /app
+
+ENV PORT 80
+
+COPY package.json /app/package.json
+
+RUN npm install
+
+COPY . /app
+
+# replace ormconfig.json with ormconfig.docker.json
+COPY ormconfig.docker.json /app/ormconfig.json
+
+CMD ["npm", "run", "start--prod"]
+```
+
+---
+
+# Final Thoughts
+
+It was a fun experience to build an entire app from scratch, from select tech stack and design the layout and UI, to actually build out the app. Although it really took me a lot of time being confused, I've not only reached the goal I set before starting:
+
+- Build an app with server and client sides
+- Build authentication with JWT and Google API
+
+but I've also gone through the whole process in a web developement on my own after leaving the first job. It really helps me rethink about how important every role playing in a project is.
+
+Apart from things mentioned above, I'd like to highlight out few points I must do better next time:
+
+- **Goal Setting**
+
+  Who is your target? What problem do you want to solve? How do you solve it?
+
+  These are the most important questions I ask myselft before starting a project. I did do this time, but I gave myself too many anwsers. It was too messing. The project ended up neither fish or fowl for clients who are using it.
+
+  I have to remind future me of making goal **more simple** and **more specific**.
+
+- **Design**
+
+  A great design pattern makes developement smoother and more frequent. However, there is no a pattern that fits in every situation. I have to study more cases and learn the ability to put the appropiate solution into the specific situation.
+
+- **Comments**
+
+  A comment is helpful for other people who are reading your code to understand your logic. Even though it is my own project, it also the best practice for me to wrtie the comment. It can also make future me know what I wrote before.
+
+---
+
+# What's Next
+
+There are bunch of new things in my list, including [Three.js](https://threejs.org/), [TensorFlow](https://github.com/tensorflow/tfjs) and [canvas api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). Also, after enrolling in [Stanford - CS 253 Web Security](https://web.stanford.edu/class/cs253), web security is also a part that I'm really intersted in.
+
+I might keep digging into knowledge of cybersecurity and play around with frontend libraries recently.

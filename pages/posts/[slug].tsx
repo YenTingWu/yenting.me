@@ -64,6 +64,7 @@ const Slug: NextPage<SlugProps> = ({
         <Heading
           as="h1"
           lineHeight="65px"
+          textShadow="1px -.5px #171923"
           fontFamily="Cutive Mono, monospace"
           fontSize={['4xl', '4xl', '4xl', '5xl']}
           mt={['1rem', '1rem', '1rem', '2rem']}

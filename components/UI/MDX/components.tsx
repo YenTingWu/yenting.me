@@ -29,7 +29,7 @@ import { ChakraNextImage } from '@components/UI/ChakraNextImage';
 import { loader } from '@lib/imageLoader';
 import { CodeBlock } from './CodeBlock';
 
-const StyledColorModeAnchor = (props: AAttr) => {
+const StyledAnchor = (props: AAttr) => {
   const color = useColorModeValue('blue.500', 'blue.200');
   return (
     <Link
@@ -44,7 +44,7 @@ const StyledColorModeAnchor = (props: AAttr) => {
   );
 };
 
-const StyledBgModeBlockQuote = (props: BlockquoteAttr) => {
+const StyledBlockQuote = (props: BlockquoteAttr) => {
   const bg = useColorModeValue('gray.50', 'gray.700');
 
   return (
@@ -74,6 +74,7 @@ export const mdxComponents = {
       fontSize="3rem"
       mt="3rem"
       mb="2rem"
+      textShadow=".5px -.5px #171923"
       fontWeight="900"
       {...props}
     />
@@ -134,9 +135,9 @@ export const mdxComponents = {
   hr: (props: HrAttr) => <Divider {...props} my="5rem" w="90%" mx="auto" />,
   code: CodeBlock,
   pre: StyledPre,
-  blockquote: StyledBgModeBlockQuote,
-  ul: (props: UlAttr) => <UnorderedList {...props} my="1rem" />,
-  ol: (props: OlAttr) => <OrderedList {...props} my="3rem" />,
+  blockquote: StyledBlockQuote,
+  ul: (props: UlAttr) => <UnorderedList {...props} my="2rem" />,
+  ol: (props: OlAttr) => <OrderedList {...props} my="2rem" />,
   li: (props: LiAttr) => (
     <ListItem
       {...props}
@@ -151,7 +152,7 @@ export const mdxComponents = {
   p: (props: PAttr) => (
     <Text
       fontSize={['1rem', '1rem', '1rem', '1.1rem']}
-      lineHeight="35px"
+      lineHeight="40px"
       letterSpacing=".8px"
       _notFirst={{
         marginTop: '1rem',
@@ -159,7 +160,7 @@ export const mdxComponents = {
       {...props}
     />
   ),
-  a: StyledColorModeAnchor,
+  a: StyledAnchor,
   img: (props: ImgAttr) => {
     const imgSrc = props.src || 'https://via.placeholder.com';
     const isLocalImage = /^\//.test(imgSrc);
