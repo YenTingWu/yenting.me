@@ -14,7 +14,7 @@ export const PageDefaultLayout: React.FC<PageDefaultLayoutProps> = ({
 }) => (
   <Flex minH="100vh" w="100%" flexDir="column" alignItems="center">
     <Nav mediaQuery={media} />
-    <Flex as="main" py="8" flexDir="column">
+    <Flex as="main" minH="80vh" py="8" flexDir="column">
       {children}
     </Flex>
     <Footer mediaQuery={media} />
