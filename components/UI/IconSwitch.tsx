@@ -8,7 +8,7 @@ interface IconSwitchProps {
   onClick: () => void;
 }
 
-const SIZE = 28;
+const SIZE = 22;
 const SPACING = 5000;
 const BOX_PADDING = 8;
 const DURATION = 0.3;
@@ -17,7 +17,7 @@ export const IconSwitch: React.FC<IconSwitchProps> = ({
   hasSwitched = false,
   onClick,
 }) => {
-  const containerBg = useColorModeValue('gray.100', 'gray.800');
+  const containerBg = useColorModeValue('none', 'gray.800');
   return (
     <Box
       onClick={onClick}

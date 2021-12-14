@@ -52,11 +52,11 @@ export const Nav: React.FC<NavProps> = ({
         </Heading>
         {isLargerThan500 ? (
           <HStack alignItems="center" spacing="10">
-            <InternalLink fontSize="1.25rem" href="/">
+            <InternalLink fontSize="md" href="/">
               Home
             </InternalLink>
 
-            <InternalLink fontSize="1.25rem" href="/posts">
+            <InternalLink fontSize="md" href="/posts">
               Posts
             </InternalLink>
 

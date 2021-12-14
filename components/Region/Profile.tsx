@@ -72,7 +72,7 @@ export const Profile: React.FC<ProfileProps> = ({
               <FaTwitter size="1.8rem" />
             </Link>
           </HStack>
-          <VStack alignItems="flex-start" spacing="3" fontSize="1.2rem">
+          <VStack alignItems="flex-start" spacing="3" fontSize="md">
             <Text>
               Hi, my name is YenTing, who enjoys building things and keeping
               things simple.

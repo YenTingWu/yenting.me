@@ -15,6 +15,21 @@ export const Posts: React.FC<PostsProps> = ({
   metadata,
   isShowMorePosts = false,
 }) => {
+  const posts = useMemo(
+    () =>
+      metadata.map(({ title, description, image, slug, publishedAt }, i) => (
+        <LinkOverlayCard
+          key={`${title}_${i}`}
+          title={title}
+          description={description}
+          image={image}
+          publishedAt={new Date(publishedAt)}
+          linkTo={`/posts/${slug}`}
+        />
+      )),
+    [metadata]
+  );
+
   return (
     <Flex as="section" w="100%" justifyContent="center">
       <Flex px={['5', '5', '5', 0, 0]} w="100%" maxW="700px" flexDir="column">
@@ -27,22 +42,7 @@ export const Posts: React.FC<PostsProps> = ({
           Recent Posts
         </Heading>
         <Box alignItems="flex-start" mx="auto" py="10">
-          {useMemo(
-            () =>
-              metadata.map(
-                ({ title, description, image, slug, publishedAt }, i) => (
-                  <LinkOverlayCard
-                    key={`${title}_${i}`}
-                    title={title}
-                    description={description}
-                    image={image}
-                    publishedAt={new Date(publishedAt)}
-                    linkTo={`/posts/${slug}`}
-                  />
-                )
-              ),
-            [metadata]
-          )}
+          {posts}
         </Box>
         {isShowMorePosts && (
           <InternalLink
