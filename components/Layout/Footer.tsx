@@ -29,6 +29,9 @@ export const Footer: React.FC<FooterProps> = ({}) => (
       <Text>&copy; {new Date().getFullYear()} Yen-Ting Wu</Text>
 
       <HStack spacing="10" mt={['1rem', '1rem', '1rem', 0]}>
+        <Link href="https://resume.yenting.me" isExternal>
+          Resume
+        </Link>
         <Link href="https://github.com/YenTingWu" isExternal>
           Github
         </Link>
