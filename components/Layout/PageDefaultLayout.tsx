@@ -1,20 +1,22 @@
 import React from 'react';
 import { Flex } from '@chakra-ui/layout';
+import type { FlexProps } from '@chakra-ui/layout';
 import { Nav } from '@components/Layout/Nav';
 import { Footer } from '@components/Layout/Footer';
 import type { MediaObject } from '@components/MediaContext';
 
-interface PageDefaultLayoutProps {
+interface PageDefaultLayoutProps extends FlexProps {
   media: MediaObject;
 }
 
 export const PageDefaultLayout: React.FC<PageDefaultLayoutProps> = ({
   children,
   media,
+  ...rest
 }) => (
-  <Flex minH="100vh" w="100%" flexDir="column" alignItems="center">
+  <Flex minH="100vh" w="100%" flexDir="column" alignItems="center" {...rest}>
     <Nav mediaQuery={media} />
-    <Flex as="main" minH="80vh" py="8" flexDir="column">
+    <Flex as="main" py="8" flexDir="column">
       {children}
     </Flex>
     <Footer mediaQuery={media} />

@@ -1,22 +1,15 @@
-import React, { useMemo, useContext } from 'react';
-import type { GetStaticProps, NextPage } from 'next';
-import type { PostMetadata } from '@types';
-import { Divider, Flex } from '@chakra-ui/layout';
+import React, { useContext } from 'react';
+import type { NextPage } from 'next';
+import { Flex } from '@chakra-ui/layout';
 import { HeadController } from '@components/HeadController';
 import { PageDefaultLayout } from '@components/Layout/PageDefaultLayout';
 import { Profile } from '@components/Region/Profile';
-import { Posts } from '@components/Region/Posts';
-import { getAllMetaData } from '@lib/mdx';
 import { MediaContext } from '@components/MediaContext';
 import { Spinner } from '@chakra-ui/spinner';
 
-interface HomeProps {
-  metadata: PostMetadata[];
-}
+interface HomeProps {}
 
-const Home: NextPage<HomeProps> = ({ metadata }) => {
-  const recent2Metadata = useMemo(() => metadata.slice(0, 2), [metadata]);
-
+const Home: NextPage<HomeProps> = ({}) => {
   const mediaValue = useContext(MediaContext);
 
   if (mediaValue == null) {
@@ -34,26 +27,11 @@ const Home: NextPage<HomeProps> = ({ metadata }) => {
   }
 
   return (
-    <PageDefaultLayout media={mediaValue}>
+    <PageDefaultLayout media={mediaValue} justifyContent="space-between">
       <HeadController />
       <Profile media={mediaValue} />
-      <Divider alignSelf="center" mt="3rem" mb="4rem" width="90%" />
-      <Posts
-        media={mediaValue}
-        metadata={recent2Metadata}
-        isShowMorePosts={true}
-      />
     </PageDefaultLayout>
   );
-};
-
-export const getStaticProps: GetStaticProps = () => {
-  const metadata = getAllMetaData();
-  return {
-    props: {
-      metadata,
-    },
-  };
 };
 
 export default Home;

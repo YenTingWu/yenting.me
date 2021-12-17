@@ -31,7 +31,10 @@ const Posts: NextPage<PostsProps> = ({ metadata }) => {
     );
   }
   return (
-    <PageDefaultLayout media={mediaValue}>
+    <PageDefaultLayout
+      justifyContent={metadata.length > 1 ? 'flex-start' : 'space-between'}
+      media={mediaValue}
+    >
       <HeadController title="Posts" description="Posts Page" />
       <PostsRegion metadata={metadata} />
     </PageDefaultLayout>
