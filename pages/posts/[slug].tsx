@@ -5,7 +5,7 @@ import { getAllMetaData, getPostDataWithSlug } from '@lib/mdx';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { Heading, Box, Flex } from '@chakra-ui/layout';
 import { Spinner } from '@chakra-ui/spinner';
-import { PageDefaultLayout } from '@components/Layout/PageDefaultLayout';
+import { PageDefaultLayout } from '@components/PageDefaultLayout';
 import { ChakraNextImage } from '@components/UI/ChakraNextImage';
 import { mdxComponents } from '@components/UI/MDX';
 import { HeadController } from '@components/HeadController';

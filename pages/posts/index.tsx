@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import { getAllMetaData } from '@lib/mdx';
 import type { PostMetadata } from '@types';
-import { PageDefaultLayout } from '@components/Layout/PageDefaultLayout';
+import { PageDefaultLayout } from '@components/PageDefaultLayout';
 import { HeadController } from '@components/HeadController';
 import { Posts as PostsRegion } from '@components/Region/Posts';
 import { MediaContext } from '@components/MediaContext';

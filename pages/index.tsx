@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import type { NextPage } from 'next';
 import { Flex } from '@chakra-ui/layout';
 import { HeadController } from '@components/HeadController';
-import { PageDefaultLayout } from '@components/Layout/PageDefaultLayout';
+import { PageDefaultLayout } from '@components/PageDefaultLayout';
 import { Profile } from '@components/Region/Profile';
 import { MediaContext } from '@components/MediaContext';
 import { Spinner } from '@chakra-ui/spinner';

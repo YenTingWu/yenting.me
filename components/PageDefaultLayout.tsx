@@ -1,8 +1,8 @@
 import React from 'react';
 import { Flex } from '@chakra-ui/layout';
 import type { FlexProps } from '@chakra-ui/layout';
-import { Nav } from '@components/Layout/Nav';
-import { Footer } from '@components/Layout/Footer';
+import { Nav } from '@components/Nav';
+import { Footer } from '@components/Footer';
 import type { MediaObject } from '@components/MediaContext';
 
 interface PageDefaultLayoutProps extends FlexProps {
