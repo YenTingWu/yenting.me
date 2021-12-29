@@ -16,7 +16,7 @@ export const Profile: React.FC<ProfileProps> = ({
   return (
     <Flex
       as="section"
-      w="100%"
+      w="full"
       alignItems="center"
       sx={{
         '*': {
@@ -29,7 +29,7 @@ export const Profile: React.FC<ProfileProps> = ({
         mt={isLargerThan900 ? '0' : '10'}
         px="5"
         maxW="700px"
-        w="100%"
+        w="full"
         wordBreak="break-word"
         align="start"
         spacing="5"
