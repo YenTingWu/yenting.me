@@ -1,9 +1,9 @@
 import React from 'react';
 import { chakra } from '@chakra-ui/system';
 import { Flex, Text, VStack, Heading, Link } from '@chakra-ui/layout';
-import type { LinkProps } from '@chakra-ui/layout';
 import { useColorModeValue } from '@chakra-ui/color-mode';
 import type { MediaObject } from '@components/MediaContext';
+import type { LinkProps } from '@chakra-ui/layout';
 
 interface ProfileProps {
   media: MediaObject;
@@ -43,7 +43,7 @@ export const Profile: React.FC<ProfileProps> = ({
 
         <VStack alignItems="flex-start" spacing="5" fontSize="md">
           <Text>
-            My name is YenTing Wu, a self-taught software engineer and a
+            My name is YenTing Wu, a self-motivated software engineer and a
             creator. My passion for being a software engineer lies in coming up
             with brilliant ideas with my colleges and enabling them. I take good
             care about experience, design and communication.
