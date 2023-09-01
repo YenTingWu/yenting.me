@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-/* eslint-disable @typescript-eslint/no-var-requires */
+const nextConfig = {}
 
-module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ['images.unsplash.com', 'i.imgur.com'],
-  },
-};
+module.exports = nextConfig
