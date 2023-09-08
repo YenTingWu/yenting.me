@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 const data = [
   {
     title: 'github',
@@ -21,7 +19,7 @@ const data = [
 
 export const Footer = () => {
   return (
-    <footer className="mt-auto py-10">
+    <footer className="w-full mt-[.25rem]">
       {data.map(({ title, link }) => (
         <a
           key={title}
@@ -29,7 +27,8 @@ export const Footer = () => {
           target="_blank"
           className="
           hover:underline
-          [&:not(:first-child)]:ml-3 text-neutral-800 text-sm
+          [&:not(:first-child)]:ml-3 text-neutral-400 text-sm
+          text-neutral-500
           "
         >
           {title}
