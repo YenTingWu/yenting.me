@@ -27,7 +27,9 @@ export const Footer = () => {
           target="_blank"
           className="
           hover:underline
-          [&:not(:first-child)]:ml-3 text-neutral-400 text-sm
+          sm:[&:not(:first-child)]:ml-3 
+          [&:not(:first-child)]:ml-2
+          text-sm
           text-neutral-500
           "
         >
