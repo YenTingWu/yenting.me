@@ -12,10 +12,10 @@ export default function Home() {
           'flex-col',
           'mx-auto',
           'min-h-screen',
-          'px-3'
+          'px-5'
         )}
       >
-        <article className={clsx('w-full', 'max-w-[700px]')}>
+        <article className={clsx('w-full', 'max-w-[760px]')}>
           <h2 className={clsx('sm:text-5xl', 'text-5xl', 'font-bold')}>
             Hi, I&apos;m Yen-Ting Wu
           </h2>
