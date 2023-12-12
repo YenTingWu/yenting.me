@@ -1,4 +1,5 @@
 import { HeaderLink } from './header-link';
+import { clsx } from 'clsx';
 
 const linkData = [
   {
@@ -6,14 +7,14 @@ const linkData = [
     href: '/',
   },
   {
-    title: 'About',
-    href: '/about',
+    title: 'Projects',
+    href: '/projects',
   },
 ];
 
 export const Header = () => {
   return (
-    <header className="mt-[5rem]">
+    <header className={clsx('w-full', 'mt-6', 'py-8')}>
       {linkData.map(({ title, href }) => (
         <HeaderLink key={title} href={href}>
           {title}

@@ -1,21 +1,33 @@
+import Link from 'next/link';
+import { Header } from '@components/header';
 import { Footer } from '@components/footer';
 import { clsx } from 'clsx';
 
 export default function Home() {
   return (
-    <div className={clsx('w-screen', 'flex', 'justify-center', 'items-center')}>
+    <div
+      className={clsx(
+        'w-screen',
+        'flex',
+        'justify-center',
+        'items-center',
+        'flex-col'
+      )}
+    >
       <main
         className={clsx(
           'flex',
-          'justify-center',
           'items-center',
           'flex-col',
           'mx-auto',
           'min-h-screen',
+          'max-w-[760px]',
+          'w-full',
           'px-5'
         )}
       >
-        <article className={clsx('w-full', 'max-w-[760px]')}>
+        <Header />
+        <article className={clsx('w-full', 'mt-[20vh]')}>
           <h2 className={clsx('sm:text-5xl', 'text-5xl', 'font-bold')}>
             Hi, I&apos;m Yen-Ting Wu
           </h2>
@@ -30,9 +42,9 @@ export default function Home() {
           >
             <p>A inquiring learner and a software engineer.</p>
             <p>
-              I built small side projects that are either things I need but
-              can&apos;t find somewhere else, or I was trying to compose what I
-              learned together into a project.
+              I built small <Link href="/projects">side projects</Link> that are
+              either things I need but can&apos;t find somewhere else, or I was
+              trying to compose what I learned together into a project.
             </p>
             <p>
               Currently learning algorithms with a slow pace from the course{' '}
