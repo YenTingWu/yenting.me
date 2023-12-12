@@ -87,10 +87,10 @@ export default function Posts() {
       >
         <Header />
         <div className={clsx('w-full', 'mt-5')}>
-          <h1 className={clsx('text-5xl', 'font-bold')}>Projects</h1>
+          <h1 className={clsx('text-4xl', 'font-bold')}>Projects</h1>
         </div>
 
-        <ul className={clsx('w-full', 'mt-10')}>
+        <ul className={clsx('w-full', 'mt-12')}>
           {PROJECTS.map(({ year, projects }) => {
             return (
               <div
@@ -98,7 +98,7 @@ export default function Posts() {
                 className={clsx('w-full', '[&:not(:first-child)]:mt-9')}
               >
                 <div>
-                  <h2 className={clsx('text-3xl', 'font-bold')}>{year}</h2>
+                  <h2 className={clsx('text-2xl', 'font-bold')}>{year}</h2>
                   <div
                     className={clsx(
                       'mt-1',

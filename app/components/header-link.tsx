@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation';
 
 interface HeaderLink {
@@ -15,13 +16,14 @@ export const HeaderLink = ({ children, href }: HeaderLink) => {
   return (
     <Link
       href={href}
-      className={`
-      hover:underline
-      ${isCurrentPath ? 'text-neutral-900' : 'text-neutral-400'}
-      [&:not(:first-child)]:ml-[12px]
-      py-1
-      transition
-      `}
+      className={clsx(
+        'hover:text-neutral-500',
+        isCurrentPath ? 'text-neutral-900' : 'text-neutral-400',
+        '[&:not(:first-child)]:ml-[12px]',
+        'py-1',
+        'transition',
+        'font-bold'
+      )}
     >
       {children}
     </Link>
