@@ -4,10 +4,6 @@ const data = [
     link: 'https://github.com/YenTingWu',
   },
   {
-    title: 'twitter',
-    link: 'https://twitter.com/YenTing09677393',
-  },
-  {
     title: 'resume',
     link: 'https://resume.yenting.me',
   },
