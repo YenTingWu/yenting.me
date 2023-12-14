@@ -90,7 +90,7 @@ export default function Posts() {
           <h1 className={clsx('text-4xl', 'font-bold')}>Projects</h1>
         </div>
 
-        <ul className={clsx('w-full', 'mt-12')}>
+        <ul className={clsx('w-full', 'mt-12', 'mb-12')}>
           {PROJECTS.map(({ year, projects }) => {
             return (
               <div
@@ -108,11 +108,11 @@ export default function Posts() {
                     )}
                   />
                 </div>
-                <div className={clsx('mt-10', 'w-full')}>
+                <ul className={clsx('mt-10', 'w-full')}>
                   {projects.map((project) => (
                     <Project key={project.title} {...project} />
                   ))}
-                </div>
+                </ul>
               </div>
             );
           })}
