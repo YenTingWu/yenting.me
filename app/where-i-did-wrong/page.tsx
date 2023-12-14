@@ -40,7 +40,6 @@ export default function WhereIDiDWrong() {
           <div
             className={clsx(
               'mt-8',
-              'mb-[2rem]',
               '[&_p]:mt-[1.2rem]',
               '[&_p]:text-lg',
               '[&_a]:underline',
