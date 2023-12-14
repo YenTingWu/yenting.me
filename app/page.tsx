@@ -27,7 +27,7 @@ export default function Home() {
         )}
       >
         <Header />
-        <article className={clsx('w-full', 'mt-[20vh]')}>
+        <article className={clsx('w-full', 'mt-[16vh]')}>
           <h2 className={clsx('sm:text-5xl', 'text-5xl', 'font-bold')}>
             Hi, I&apos;m Yen-Ting Wu
           </h2>
@@ -45,6 +45,18 @@ export default function Home() {
               I built small <Link href="/projects">side projects</Link> that are
               either things I need but can&apos;t find somewhere else, or I was
               trying to compose what I learned together into a project.
+            </p>
+            <p>
+              And also{' '}
+              <a
+                href="https://verbena-patient-a60.notion.site/Where-I-did-wrong-45631cc8f3ad4bd28a47e8670a6ad2b9"
+                target="_blank"
+              >
+                where I did wrong
+              </a>{' '}
+              is the place reminding me of the failures and mistakes I made.{' '}
+              <Link href="/where-i-did-wrong">Here</Link> is the reason I
+              started this project.
             </p>
             <p>
               Currently learning algorithms with a slow pace from the course{' '}
