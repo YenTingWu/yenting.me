@@ -1,8 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'], weight: ['400', '600', '700'] });
+import { inter } from './fonts';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://yenting.me'),
