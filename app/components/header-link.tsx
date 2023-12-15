@@ -17,7 +17,7 @@ export const HeaderLink = ({ children, href }: HeaderLink) => {
     <Link
       href={href}
       className={clsx(
-        `hover:${isCurrentPath ? 'text-neutral-900' : 'text-neutral-500'}`,
+        isCurrentPath ? 'hover:text-neutral-900' : 'hover:text-neutral-500',
         isCurrentPath ? 'text-neutral-900' : 'text-neutral-400',
         '[&:not(:first-child)]:ml-[12px]',
         'py-1',
