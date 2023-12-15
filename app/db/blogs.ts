@@ -27,7 +27,7 @@ function parseFormat(fileContent: string) {
     let value = valueArr.join(': ');
 
     // Remove surrounding quotes
-    value = value.replace(/^['"](.&)['"]$/, '$1');
+    value = value.replace(/^['"](.*)['"]$/, '$1');
     metadata[key.trim() as keyof Metadata] = value;
   });
 
@@ -55,7 +55,7 @@ function getMDXData(dir: string) {
       slug: getBlogSlug(filePath),
       ...parseFormat(fileContent),
     };
-  });
+  }) as { content: string; metadata: Metadata; slug: string }[];
 }
 
 export function getPosts() {

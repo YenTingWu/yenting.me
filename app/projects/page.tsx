@@ -100,12 +100,7 @@ export default function Posts() {
                 <div>
                   <h2 className={clsx('text-2xl', 'font-bold')}>{year}</h2>
                   <div
-                    className={clsx(
-                      'mt-1',
-                      'h-[5px]',
-                      'w-[60px]',
-                      'bg-stone-500'
-                    )}
+                    className={clsx('h-[3px]', 'w-[60px]', 'bg-stone-500')}
                   />
                 </div>
                 <ul className={clsx('mt-10', 'w-full')}>
