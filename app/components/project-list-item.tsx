@@ -6,7 +6,7 @@ interface ProjectProps {
   link: string;
 }
 
-export const Project = ({ title, description, link }: ProjectProps) => {
+export const ProjectListItem = ({ title, description, link }: ProjectProps) => {
   return (
     <li
       className={clsx(
