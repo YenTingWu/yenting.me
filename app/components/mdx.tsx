@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Divider } from '@components/divider';
 import { rubik } from '@/fonts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
@@ -29,6 +31,16 @@ const Code = ({ children, ...props }: ComponentPropsType) => {
   const codeHTML = highlight(children as string);
 
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+};
+
+const StyledImage = (props: React.ComponentProps<typeof Image>) => {
+  return (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <Image
+      {...props}
+      className={clsx('rounded', 'my-5', 'shadow-sm', props.className)}
+    />
+  );
 };
 
 function slugify(str: string) {
@@ -78,6 +90,8 @@ const components = {
   h5: createHeading(5),
   h6: createHeading(6),
   a: CustomLink,
+  Image: StyledImage,
+  Divider,
 };
 
 export const CustomMDX = (props: MDXRemoteProps) => {

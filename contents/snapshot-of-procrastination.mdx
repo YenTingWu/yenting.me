@@ -1,0 +1,257 @@
+---
+title: 'Snapshot of Procrastination'
+description: "In this article, I'll share how I built this web application, procrastination, and the props and cons of the tech stack I chose"
+publishedAt: '2021-09-30'
+lang: 'en'
+---
+
+[Archived Github Repo](https://github.com/YenTingWu/procrastination)
+
+# Why
+
+During my self-taught period and my last job, I learned and experienced UI techniques, and also built a fundamental mindset of how to develop a comprehensive client-side applications. However, when talking about the server side, I had only a slightly understanding. I was confused about the detail of how both sides communicate; felt frustrated when cors problems showed up somehow, which took me tons of time to find out that all I needed to do was to add a fucking one-line code into the backend codebase and the error solved; was alienated when other people were talking about api gateway, docker and other backend stuff. These experiences cultivated my curiosity and pushed me to learn more things.
+
+After leaving my last job, I took a course - [Stanford - CS 253 Web Security](https://web.stanford.edu/class/cs253) instructed by Feross Aboukhadijeh, who was such a great instructor and a tech enthusiast. I can still feel his passion and how humble he was even though he had been in this industry for decades. He was **Jack Peralta** in tech. Just give [the annoying website](https://theannoyingsite.com/) a try **_(You might like to use another browser instead of the current one you are using)_** and you will know why.
+
+In this course, he took us through the comprehensive overview of web security. He demoed how people attack a site and demoed again how we could prevent our sites from malicious attacks. Also, he went into detail about basic concepts of web, including **dns, https, tls and the different version of auth**, which are terms I heard before but never fully understood. In addition, he provided reading resources for each class. These experiences really helped me get into the network of web and gave me a chance to practice my skill of reading long articles.
+
+While taking this course, I started browsing around new things in the web community just for satisfying my curiosity. I struggled to get a job last year so that I had no time to try anything not a job requirement. Besides, I had no ability to understand those articles, and had no experience to tell which solution was more appropiate to a specific situation, or what problem the library solved. It was so much pleasure that you can understand what people were discussing, even though it was hard to grasp all the points at the first place in some cases. At this point, I finally realized what **"trade off"** is. It was a term that Jimmy, my ex-manager, had reminded me several times but I couldn't really get it. **_Not knowing "trade off" screwed me up beyond number not only in programming but in my life and my work as well._**
+
+I have never been so happy in study time before. In this period, I tried bunch of libraries, learned lots of concects about computer and web, and joined an open-source project. Even though all I can help was to translate english to traditional mandarine, but I got a chance to see how people worked together in a remote workspace, which is also my dream pattern for work. However, I wasn't sure enough what I had learned so far if I only input my knowledge without giving an output. So I decided to make a small project to play with what I had learned for now and try some libraries in my list. In this project, my goal was:
+
+- Build an app with client and server sides
+- Build authentication with JWT and Google API
+
+<Divider />
+
+# Tech Stack
+
+I considered my tech stack based on one thing only:
+
+- **Unexperienced** - I wanted to try new libraries I had never used in a project before.
+
+- **Cool** - It should fulfill the cool kid's spirit inside the very bottom of my heart.
+
+## Web
+
+Since I'm more familiar with the client side, I'll dig more detail in this part and separate it into four parts:
+
+- Web Library and Framework
+- Style
+- State Management
+- Other
+
+#### Web Library and Framework
+
+I chose **React with Next** in this project.
+
+###### React
+
+I've tried React, Vue and Svelte, and they both provide some declarative syntax and templates, which I personally feel a little bit annoying whereas some people claim it's more straightforward. React, except JSX, **it allows you to use a plain javascript syntax to write the entire code.** That is my favorite part of React.
+
+###### Next
+
+Next is a framework of React and provide you a developer-friendly experience to build modern websites.
+
+In my previous job, we used Gatsby to build our landing page and web app. Gatsby is also a React's framework and it mainly provides SSG for you to build static websites, but it also has the SSR(server-side rendering) api for you to fetch data in the server side. Back in the day, Next hadn't allowed SSG so our team chose Gatsby for the performance in this case.
+
+However, my experience of Gatsby wasn't really good. Those fucking confusing configuration really messed me up, but it could result from my terrible understanding of webpack at that time. In addition, when I chose my tech stack, Next had already provided couple pre-rendering methods, including SSG(static site generator), SSR(server-side rendering) and ISR(incremental static regeneration). Therefore, I chose Next as my React's framework.
+
+As their landing page said, Next.js actually gave me the best developer experience especially for couple reasons:
+
+- **The entire app structure doesn't change a lot from a plain react app**. If you are already a React developer, you can learn Next with a slight learing curve.
+
+- It provides an easy way to set up **typescript, CSS-in-JS, Storybook, Testing, Webpack, Babel and Eslint**.
+
+- It provides apis to improve the optimization, including [Image tag](https://nextjs.org/docs/api-reference/next/image) and [AMP support](https://nextjs.org/docs/advanced-features/amp-support/introduction).
+
+- Simple api for [flexible data fetching](https://nextjs.org/docs/basic-features/data-fetching), including **getStaticProps** for data fetching in bundle time and **getServerSideProps** for data fetching in run time.
+
+- [Fast Refresh](https://nextjs.org/docs/basic-features/fast-refresh) is the best part. While building the Next app, most edits will be visible within a second, without losing component state. This was so smooth that I didn't noticed it until building a Svelte app. It was pretty irritatting Svelte reset all my state when I changed somthing in my code.
+
+Next.js really gave me a great experience and it might be my top first priority in the future when I want to build either a server-side rendering app. While I'd like to choose Svelte for a small static-first project.
+
+##### Style Library
+
+I chose **[Chakra UI](https://chakra-ui.com/)** in this project.
+
+I like to use CSS-in-JS libraries, such as [Emotion](https://emotion.sh/docs/introduction) and [Styled-Components](https://styled-components.com/), which I've used in several projects. It allows me to build a component in one file only and I don't have to worry about the same-selector issue due to its scoped seletors.
+
+Chakra UI is a component library for react and it creates components with emotion underneath the hood. It allows us to style components **with props of components** and also helps us handle the responsive and color mode with simple apis. In addition, it has a great integration of typescript.
+
+In my opinion, Chakra UI provides a great balance between utilitis-first and components-first libraries. I'm able to use these built-in components to build most parts of my app; on the other hand, it's flexible enough for me to custumize my own style easily, unlike other components-first libraries such as [Bootstrap](https://getbootstrap.com/) and [Ant Design](https://ant.design/), which are hard to change styles into what you want.
+
+##### State Management
+
+I chose **Zustand** for client-side states and **React Query** for server-side caches.
+
+I've used [Redux](https://redux.js.org/), [Constate](https://github.com/diegohaz/constate) and [context api](https://reactjs.org/docs/context.html) in previous projects. Basically, no matter what I used above, the concects are the same. There is always a global object to store the state for the entire app. To manipulate data, we basically fetch data in the page and pass down data to components through Flux architechture.
+
+![One Global Object Schematic Diagram](https://i.imgur.com/kfOUc9Q.png)
+
+But when using the combination of Zustand and React Query, it has a slightly different. We divide the global object into two parts: the client state and the server cache. Zustand only serves as a client-state management meanwhile React Query only serves as a server-state handler.
+
+![Separated Global Object Schematic Diagram](https://i.imgur.com/zMUGfN9.png)
+
+Why do I do this? I think the main reason is because we essentially use different ways to handle client state and server cache. When handling server state, we have to **fetch, cache, synchronize and update** data, which are unnecessary when handling the client state. With React Query, I'm able to do all these feature in a simple function.
+
+###### React Query
+
+For me, React Query is a library that helps me handle the server state **with a declarative way**. It not only stores cache but also provides methods for you to do error handling, data initialization, data reset and other things you probably need to go through when manipulating server state.
+
+```typescript
+function fetchDeleteData(uuid: string, token: string) {
+  return axios({
+    method: 'DELETE',
+    baseURL: API_BASE_URL,
+    url: `/event/e/${uuid}`,
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+function useEventDeleteMutation(queryClient: QueryClient) {
+  return useMutation(
+    ({ id, token }: { id: string; token: string }) =>
+      fetchDeleteData(id, token),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(QUERY_KEYS.currentUser);
+      },
+      onError: (err) => {
+        console.error(err);
+      },
+      onSettled: () => {
+        queryClient.invalidateQueries(QUERY_KEYS.currentUser);
+      },
+    }
+  );
+}
+```
+
+This is a simple example in my app to show how React Query works. `useMutation` is an api that handles mutation actions, including **POST, PUT, PATCH, DELETE**. In this case, it handles a delete action and we can inspect few things:
+
+- The first parameter is a fetching function.
+- The second parameter is an object that provides you methods to deal with different situations, like `onError`, `onSuccess`, `retry`, `retryDelay`.
+
+It's so declarative and you don't need to do any try catch function to make codes become long and nested. This is my favorite part of this library. There are lots of usecases I haven't figure out and it will be really fun to dig more in this library to get them out.
+
+###### Zustand
+
+Zustand is created by the author of react-spring and react-three-fiber, Poimandres (shout out to [Poimandres](https://pmnd.rs/)). It's redux with less syntax and a smaller package for me. It has the same concept of state and dispatcher, and also some simular tools, such as devtools and middlewares. **The main difference is that Zustand isn't tied to react context** (I haven't understood how it works underneath the hood) so that it's able to use in any framework or even a plain javascript project. I really enjoy playing around with this library due to:
+
+- **Simplified Redux** -
+  I hate redux because of complex syntax and file system. When creating a reducer, I needed to deal with at least three files and that pissed me off. Zustand fix this problem but doesn't break the concept so that it's easy to migrant from redux.
+
+- **Not React Only** -
+  Due to Zustand isn't tied to react context, I can use it in different frameworks. This is the special part which no other library is equipped with.
+
+- **The Cutest Bear Ever!!!!!!!!!!!!!!** -
+  Frankly, I was attracted by the cutest bear at first, otherwise I might be still using constate or react context in this project.
+
+But the drawback is the inconprehensive document. Some information might be insufficent in the doc and I have to fint it out in issues or source code.
+
+##### Others
+
+###### Typescript
+
+While [Deno and Svelte are moving away Typescript from their internals due to build times and code complexity](https://twitter.com/swyx/status/1350427690814251010/photo/1), Typescript is still my favorite.
+
+Typescript really helps me with my speed and accuracy. Thanks for the greate integration typescript and vscode, I don't need to console variables out to know what the data structure is. All I need to do is to hover on the variable and the data type shows.
+
+###### D3
+
+###### React-Beautiful-DND
+
+## Server & Cloud
+
+###### TypeORM
+
+TypeORM is an **Object Relational Mapper** library running in node.js. It supports javscript and typescript.
+
+I have not much experience with ORM and SQL. It was really confusing for me that people used different apis in this library to do literally the same thing. I didn't know what I should follow, so whatever was workable was fine for me and both patterns are in my codebase now. Apprentlly, I didn't read the doc clearly. While writing this article, I found out there are two different patterns, [Active Record and Data Mapper](https://typeorm.io/#/active-record-data-mapper/which-one-should-i-choose).
+
+This is my first time using ORM. I've only used Knex as database before and I think:
+
+- **More Declarative** -
+  The **virtual object database** is really helpful for me to read the code.
+
+- **Less Complexity** -
+  When using Knex, it was a lot of nested functions whereas ORM is much clearer for me to understand which column I'm working on.
+
+But I actually don't like TypeORM because of the lack of docs. [Prisma](https://www.prisma.io/) might be the next ORM I would like to play around with.
+
+###### Digital Ocean
+
+I had no CS background and never fully understood what memory or disk is. Also, I had been curious about how it cost for running a cloud server. Due to the reason above, I tried to run a server instead of using serverless database.
+
+At first, I ran a 1GB of RAM droplets for my server and DB. While setting up, I surprisely found out that it already cost 1.3GB for only my node server code. And I changed the project to 2GB of RAM. But after storing some data into DB, RAM issues came out again.
+
+I'm still figuring out what is the best solution for me. Currently my take away is not put DB in the droplet. It's kind of ridiculous.
+
+###### Docker
+
+When starting approaching web developement, I kept hearing about Docker container and Kubernetes. That definitely arose my FOMO. It seemed like that everyone knows about the technique. I had tried it once before but that was a catastrophe, and it's time to refight the battle.
+
+Docker, from my understanding, is a software platform that packages solfware into a unit, which is called container. A container provides the all it needs to run the solfware. In this case, we can run the container on any environment. That could make deploying and scaling applications more quickly and easier.
+
+It really makes me set up all environment to run my node server and DB so simply. All it need is to write few lines code in Dockerfile and docker-compose and you can set up the environment. Besides, you are able to access different files depending on different environment, like developement, staging or production.
+
+**Dockerfile**
+
+```Dockerfile
+FROM node:14
+
+WORKDIR /app
+
+ENV PORT 80
+
+COPY package.json /app/package.json
+
+RUN npm install
+
+COPY . /app
+
+# replace ormconfig.json with ormconfig.docker.json
+COPY ormconfig.docker.json /app/ormconfig.json
+
+CMD ["npm", "run", "start--prod"]
+```
+
+<Divider />
+
+# Final Thoughts
+
+It was a fun experience to build an entire app from scratch, from tech stack selection and the layout and UI design, to actually the app developement. Although it really took me most of time being confused, I've not only reached the goal I set before starting:
+
+- Build an app with server and client sides
+- Build authentication with JWT and Google API
+
+but I've also gone through the whole process in a web developement on my own, after leaving the first job. This really helps me rethink about how important every role playing in a project is.
+
+Apart from things mentioned above, I highlight out few points I must do better next time:
+
+- **Goal Setting**
+
+  Who is your target? What problem do you want to solve? How do you solve it?
+
+  These are the most important questions I ask myselft before starting a project. I did do this time, but I gave myself too many anwsers. It was too messing. The project ended up neither fish or fowl for clients who are using it.
+
+  I have to remind future me of making the goal **more simple** and **more specific**.
+
+- **Design**
+
+  A great design pattern makes developement smoother and more frequent. However, there is no a pattern that fits in every situation. I have to study more cases and learn the ability to put the appropiate solution into the specific situation.
+
+- **Comments**
+
+  A comment is helpful for other people who are reading your code to understand your logic. Even though it is my own project, it also the best practice for me to wrtie the comment. It can also make future me know what I wrote before.
+
+<Divider />
+
+# What's Next
+
+There are bunch of new things in my list, including [Three.js](https://threejs.org/), [TensorFlow](https://github.com/tensorflow/tfjs) and [canvas api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). Also, after enrolling in [Stanford - CS 253 Web Security](https://web.stanford.edu/class/cs253), web security is also a part that I'm really intersted in.
+
+I might keep digging into knowledge of cybersecurity and play around with frontend libraries recently.

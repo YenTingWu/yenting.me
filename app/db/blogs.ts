@@ -5,7 +5,9 @@ type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
+  lang: 'en' | 'zh-tw';
   image?: string;
+  imageAlt?: string;
 };
 
 function parseFormat(fileContent: string) {
@@ -20,7 +22,7 @@ function parseFormat(fileContent: string) {
   // Remove the front matter block from the file content
   const content = fileContent.replace(formatRegex, '').trim();
 
-  let metadata: Partial<Metadata> = {};
+  let metadata: Record<string, Metadata[keyof Metadata]> = {};
 
   frontMatterBlock.split('\n').forEach((line) => {
     const [key, ...valueArr] = line.split(': ');
@@ -28,10 +30,11 @@ function parseFormat(fileContent: string) {
 
     // Remove surrounding quotes
     value = value.replace(/^['"](.*)['"]$/, '$1');
-    metadata[key.trim() as keyof Metadata] = value;
+
+    metadata[key.trim()] = value;
   });
 
-  return { content, metadata };
+  return { content, metadata: metadata as Metadata };
 }
 
 function getMDXFiles(dir: string) {

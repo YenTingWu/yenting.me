@@ -15,8 +15,19 @@ export const PostListItem = ({
   slug,
 }: PostListItemProps) => {
   return (
-    <li className={clsx('flex', 'w-full', 'justify-between', 'items-center')}>
-      <Link href={`/posts/${slug}`} className={clsx('w-[200px]', 'text-xl')}>
+    <li
+      className={clsx(
+        'flex',
+        'w-full',
+        'max-sm:flex-col',
+        'justify-between',
+        'items-start'
+      )}
+    >
+      <Link
+        href={`/posts/${slug}`}
+        className={clsx('max-w-[278px]', 'w-full', 'text-xl')}
+      >
         {title}
       </Link>
       <span
@@ -26,7 +37,8 @@ export const PostListItem = ({
           'font-medium',
           'text-sm',
           'tracking-[3px]',
-          'leading-5'
+          'leading-5',
+          'text-neutral-500'
         )}
       >
         {DateTime.fromISO(publishedAt).toFormat('MMM dd, yyyy')}

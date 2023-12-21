@@ -34,6 +34,11 @@ p {
   letter-spacing: 0.5px;
 }
 
+li {
+  color: #555555;
+  letter-spacing: 0.5px;
+}
+
 header .header-link {
   color: #bbbbbb;
   transition: 0.15s ease color;
@@ -105,12 +110,21 @@ header .header-link:hover {
   color: #555555;
 }
 
+.post-content-container li > p:first-child {
+  display: inline;
+}
+
+.post-content-container li > p:not(:first-child) {
+  /* It's the width of ::maker psuedo code */
+  margin-left: 20px;
+}
+
 .anchor {
   @apply relative;
 }
 
 pre {
-  @apply px-5 py-8 my-4 rounded;
+  @apply px-3 py-5 my-4 rounded text-sm leading-6;
   background-color: #f6f8fa;
 }
 
