@@ -1,5 +1,6 @@
 import { Header } from '@components/header';
-import { Project } from '@components/project';
+import { ProjectListItem } from '@components/project-list-item';
+import { Rough } from '@components/rough';
 import { clsx } from 'clsx';
 import type { Metadata } from 'next';
 
@@ -98,14 +99,14 @@ export default function Posts() {
                 className={clsx('w-full', '[&:not(:first-child)]:mt-9')}
               >
                 <div>
-                  <h2 className={clsx('text-2xl', 'font-bold')}>{year}</h2>
-                  <div
-                    className={clsx('h-[3px]', 'w-[60px]', 'bg-stone-500')}
-                  />
+                  <Rough>{year}</Rough>
+                  {/* <div
+                    className={clsx('h-[1px]', 'w-[60px]', 'bg-stone-500')}
+                  /> */}
                 </div>
                 <ul className={clsx('mt-10', 'w-full')}>
                   {projects.map((project) => (
-                    <Project key={project.title} {...project} />
+                    <ProjectListItem key={project.title} {...project} />
                   ))}
                 </ul>
               </div>

@@ -44,6 +44,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  rough-notation:
+    specifier: ^0.5.1
+    version: 0.5.1
   sugar-high:
     specifier: ^0.5.6
     version: 0.5.6
@@ -2900,6 +2903,10 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: false
+
+  /rough-notation@0.5.1:
+    resolution: {integrity: sha512-ITHofTzm13cWFVfoGsh/4c/k2Mg8geKgBCwex71UZLnNuw403tCRjYPQ68jSAd37DMbZIePXPjDgY0XdZi9HPw==}
     dev: false
 
   /run-parallel@1.2.0:
