@@ -30,6 +30,7 @@ body {
 }
 
 p {
+  @apply text-base;
   color: #555555;
   letter-spacing: 0.5px;
 }

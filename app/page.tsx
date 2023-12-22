@@ -55,7 +55,7 @@ export default function Home() {
                 where I did wrong
               </a>{' '}
               is the place reminding me of the failures and mistakes I made.{' '}
-              <Link href="/where-i-did-wrong">Here</Link> is the reason I
+              <Link href="/posts/where-i-did-wrong">Here</Link> is the reason I
               started this project.
             </p>
             <p>
