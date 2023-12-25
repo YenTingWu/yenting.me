@@ -1,5 +1,5 @@
-import { getPosts } from '@db/blogs';
 import Image from 'next/image';
+import { getPosts } from '@db/blogs';
 import { clsx } from 'clsx';
 import { CustomMDX } from '@components/mdx';
 import { Header } from '@components/header';
@@ -7,6 +7,7 @@ import { Divider } from '@components/divider';
 import { notFound } from 'next/navigation';
 import { DateTime } from 'luxon';
 import { rubik } from '@/fonts';
+import { View } from './view';
 
 interface GenerateMetadataProps {
   params: {
@@ -45,6 +46,7 @@ export default async function Post({ params }: PostPageProps) {
   const {
     metadata: { title, publishedAt, image, imageAlt },
     content,
+    slug,
   } = post;
 
   return (
@@ -70,6 +72,7 @@ export default async function Post({ params }: PostPageProps) {
         )}
       >
         <Header />
+        <View publishedAt={publishedAt} slug={slug} />
 
         <main className={clsx('max-w-[780px]', 'py-20', 'w-full')}>
           <div className={clsx('mb-10', rubik.className)}>
