@@ -2,8 +2,13 @@ import Link from 'next/link';
 import { Header } from '@components/header';
 import { Footer } from '@components/footer';
 import { clsx } from 'clsx';
+import { increaseView } from './db/mutations';
 
 export default function Home() {
+  if (process.env.NODE_ENV === 'production') {
+    increaseView('HOME_PAGE');
+  }
+
   return (
     <div
       className={clsx(
