@@ -1,14 +1,8 @@
 import { increaseView } from '@db/mutations';
 
-export const View = ({
-  slug,
-  publishedAt,
-}: {
-  slug: string;
-  publishedAt: string;
-}) => {
+export const View = ({ postId }: { postId: string }) => {
   if (process.env.NODE_ENV === 'production') {
-    increaseView(`${slug}_${publishedAt}`);
+    increaseView(postId);
   }
 
   return null;

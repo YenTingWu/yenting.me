@@ -72,7 +72,7 @@ export default async function Post({ params }: PostPageProps) {
         )}
       >
         <Header />
-        <View publishedAt={publishedAt} slug={slug} />
+        <View postId={`${slug}_${publishedAt}`} />
 
         <main className={clsx('max-w-[780px]', 'py-20', 'w-full')}>
           <div className={clsx('mb-10', rubik.className)}>
