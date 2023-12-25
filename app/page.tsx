@@ -65,13 +65,6 @@ export default function Home() {
               </a>
               . Check out my note on{' '}
               <a
-                href="https://app.heptabase.com/w/f1dac5f931087ce6c3f53244d3daf79fcfbe470542ca8002789d63bb73e7d54b?id=3eede30d-f134-4a26-b34f-9a98fd6c6985"
-                target="_blank"
-              >
-                heptabase
-              </a>{' '}
-              and{' '}
-              <a
                 href="https://github.com/YenTingWu/algorithms-illuminated"
                 target="_blank"
               >
