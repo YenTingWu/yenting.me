@@ -2,8 +2,6 @@ import { sql } from '@vercel/postgres';
 
 // postId = post_name + post_publishAt
 export async function increaseView(postId: string) {
-  console.log('increaseView');
-
   try {
     await sql`
         INSERT INTO views ( post_id, count )
