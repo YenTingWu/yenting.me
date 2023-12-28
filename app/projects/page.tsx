@@ -17,7 +17,7 @@ const PROJECTS: { year: number; projects: Project[] }[] = [
       {
         title: 'reeeeader',
         description: 'Chrome extension for readers',
-        link: 'https://github.com/YenTingWu/reeeeader',
+        link: 'https://chromewebstore.google.com/detail/reeeeader/gedkhnjohcifdbpmkenjfolmakliaejj',
       },
       {
         title: 'chak-timmy',
