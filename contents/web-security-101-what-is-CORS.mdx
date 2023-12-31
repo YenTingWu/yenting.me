@@ -1,0 +1,42 @@
+---
+title: 'Web Security 101 - What is CORS (Cross-Site Resource Forgery)?'
+description: 'This is a series of web security articles. In this article, I will explain what I learned about CORS (Cross-Site Resource Forgery)'
+publishedAt: '2023-12-15'
+lang: 'en'
+---
+
+## CORS
+
+Cross-origin resource sharing (CORS) is a mechanism for integrating applications. CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain.
+
+### Why is cross-origin resource sharing important?
+
+In the past, when internet technologies were still new, CSRF issues happened. These issues sent fake client requests from the victim’s browser to another application.
+
+To prevent such CSRF issues, all browsers now implement the same-origin policy.
+
+**😱 the same-origin policy is highly secure but inflexible for genuine use cases.**
+
+Cross-origin resource sharing (CORS) is an extension of the same-origin policy. You need it for authorized resource sharing with external third parties.
+
+- You need CORS when you want to pull data from external APIs that are public or authorized.
+- You also need CORS if you want to allow authorized third-party access to your own server resources.
+
+### How does cross-origin resource sharing work?
+
+When you make a cross-origin request, this is the request-response process:
+
+1. The browser adds an origin header to the request with information about the current origin's protocol, host, and port
+2. The server checks the current origin header and responds with the requested data and an `Access-Control-Allow-Origin` header
+3. The browser sees the access control request headers and shares the returned data with the client application
+
+Alternatively, if the server doesn’t want to allow cross-origin access, it responds with an error message.
+
+### What are some CORS best practices?
+
+- **Define appropriate access lists**
+  It’s always best to grant access to individual domains using comma-separated lists. Avoid using wildcards unless you want to make the API public.
+- **Avoid using null origin in your list**
+  Some browsers send the value *null* in the request header for certain scenarios like file requests or requests from the local host.
+- [https://aws.amazon.com/what-is/cross-origin-resource-sharing/](https://aws.amazon.com/what-is/cross-origin-resource-sharing/)
+- [https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)

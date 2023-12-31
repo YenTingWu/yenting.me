@@ -1,0 +1,28 @@
+---
+title: 'Web Security 101 - What is XSS (Cross-Site Scripting)?'
+description: 'This is a series of web security articles. In this article, I will explain what I learned about XSS (Cross-Site Scripting)'
+publishedAt: '2023-12-15'
+lang: 'en'
+---
+
+## XSS (cross-site scripting)
+
+XSS attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites.
+
+- Code injection is caused when untrusted user data unexpectedly becomes code
+- In XSS, the unexpected code is Javascript in an HTML document
+- In SQL injection, the unexpected code is extra SQL commands included a SQL query string.
+
+If successful, attacker gains the ability to do anything the target can do through their browser
+
+- Can view/exfiltrate their cookies
+- Can send any HTTP request to the site. with the user’s cookies
+
+### Reflected vs. Stored XSS
+
+- In **reflected XSS,** the attack code is placed into the HTTP request itself
+  - Attacker goal: find a URL that you can make target visit that includes your attack code
+  - Limitation: Attack code must be added to the URL path or query parameters
+- In **stored XSS,** the attack code is persisted into the database
+  - Attacker goal: Use **any means** to get attack code into the database
+  - Once there, server includes it in all pages sent to clients
