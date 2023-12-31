@@ -11,19 +11,23 @@ lang: 'en'
 
 The `Secure` attribute tells the browser to only send the cookie if the request is being set over a secure channel such as **HTTPS.** This will help protect the cookie from being passed in unencrypted requests.
 
-|                                                                       | Secure: true | Secure: false |
-| --------------------------------------------------------------------- | ------------ | ------------- |
-| Will a browser send the cookie if the request url is start with http? | No           | yes           |
+<Table
+  colTitles={['Secure: true', 'Secure: false']}
+  rowTitles={[
+    'Will a browser send the cookie if the request url is start with http?',
+  ]}
+  rows={[['no', 'yes']]}
+/>
 
 ### httpOnly
 
 The `httpOnly` attribute is used to help prevent attacks such as session leakage, since it does not allow the cookie to be accessed via a client-side script such as JavaScript.
 
-|                                                    | httpOnly: true | httpOnly: false |
-| -------------------------------------------------- | -------------- | --------------- |
-| Can a user assess the cookie with document.cookie? | no             | yes             |
-
-- [https://tech-blog.cymetrics.io/posts/jo/zerobased-secure-samesite-httponly/](https://tech-blog.cymetrics.io/posts/jo/zerobased-secure-samesite-httponly/)
+<Table
+  colTitles={['httpOnly: true', 'httpOnly: false']}
+  rowTitles={['Can a user assess the cookie with document.cookie?']}
+  rows={[['no', 'yes']]}
+/>
 
 ### SameSite
 
@@ -35,11 +39,22 @@ The `SameSite` attribute can be used to assert whether a cookie should be sent a
 
 `Set-Cookie: key=value; Secure; HttpOnly; Path=/; SameSite=Lax`
 
-|                                                                                         | SameSite: Strict | SameSite: Lax | SameSite: None |
-| --------------------------------------------------------------------------------------- | ---------------- | ------------- | -------------- |
-| If the cookie set by https://yenting.me, can https://attacker.com access the cooke?     | No               | No            | Yes            |
-| If the cookie set by https://yenting.me, can https://blog.yenting.me access the cooke?  | No               | Yes           | Yes            |
-| If the cookie set by https://yenting.me, can https://yenting.me/posts access the cooke? | No               | Yes           | Yes            |
-| If the cookie set by https://yenting.me, can https://yenting.me access the cooke?       | Yes              | Yes           | Yes            |
+<Table
+  colTitles={['SameSite: Strict', 'SameSite: Lax', 'SameSite: None']}
+  rowTitles={[
+    'If the cookie set by https://yenting.me, can https://attacker.com access the cooke?',
+    'If the cookie set by https://yenting.me, can https://blog.yenting.me access the cooke?',
+    'If the cookie set by https://yenting.me, can https://yenting.me/posts access the cooke?',
+    'If the cookie set by https://yenting.me, can https://yenting.me access the cooke?',
+  ]}
+  rows={[
+    ['No', 'No', 'Yes'],
+    ['No', 'Yes', 'Yes'],
+    ['No', 'Yes', 'Yes'],
+    ['Yes', 'Yes', 'Yes'],
+  ]}
+/>
 
 - [https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes#:~:text=The Secure attribute tells the,being passed in unencrypted requests](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes#:~:text=The%20Secure%20attribute%20tells%20the,being%20passed%20in%20unencrypted%20requests).
+
+- [https://tech-blog.cymetrics.io/posts/jo/zerobased-secure-samesite-httponly/](https://tech-blog.cymetrics.io/posts/jo/zerobased-secure-samesite-httponly/)

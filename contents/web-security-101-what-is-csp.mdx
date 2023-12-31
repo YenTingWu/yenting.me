@@ -15,13 +15,23 @@ The same-origin policy is a critical security mechanism that restricts how a doc
 
 `http://store.company.com/dir/page.html`:
 
-| URL                                             | Outcome     | Reason                                         |
-| ----------------------------------------------- | ----------- | ---------------------------------------------- |
-| http://store.company.com/dir2/other.html        | Same origin | Only the path differs                          |
-| http://store.company.com/dir/inner/another.html | Same origin | Only the path differs                          |
-| https://store.company.com/page.html             | Failure     | Different protocol                             |
-| http://store.company.com:81/dir/page.html       | Failure     | Different port (http:// is port 80 by default) |
-| http://news.company.com/dir/page.html           | Failure     | Different host                                 |
+<Table
+  colTitles={['Outcome', 'Reason']}
+  rowTitles={[
+    'http://store.company.com/dir2/other.html',
+    'http://store.company.com/dir/inner/another.html',
+    'https://store.company.com/page.html',
+    'http://store.company.com:81/dir/page.html',
+    'http://news.company.com/dir/page.html',
+  ]}
+  rows={[
+    ['Same origin', 'Only the path'],
+    ['Same origin', 'Only the path'],
+    ['Failure', 'Different protocol'],
+    ['Failure', 'Different port (http:// is port 80 by default)'],
+    ['Failure', 'Different host'],
+  ]}
+/>
 
 ## CSP (Content Secure Policy)
 

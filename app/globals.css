@@ -120,6 +120,11 @@ header .header-link:hover {
   margin-left: 20px;
 }
 
+.post-content-container table {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .anchor {
   @apply relative;
 }

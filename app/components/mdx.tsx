@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Divider } from '@components/divider';
+import { Table } from '@components/table';
 import { rubik } from '@/fonts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
@@ -91,6 +92,7 @@ const components = {
   h6: createHeading(6),
   a: CustomLink,
   Image: StyledImage,
+  Table,
   Divider,
 };
 
