@@ -38,5 +38,10 @@ Alternatively, if the server doesn’t want to allow cross-origin access, it res
   It’s always best to grant access to individual domains using comma-separated lists. Avoid using wildcards unless you want to make the API public.
 - **Avoid using null origin in your list**
   Some browsers send the value *null* in the request header for certain scenarios like file requests or requests from the local host.
-- [https://aws.amazon.com/what-is/cross-origin-resource-sharing/](https://aws.amazon.com/what-is/cross-origin-resource-sharing/)
-- [https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+<Reference
+  resources={[
+    'https://aws.amazon.com/what-is/cross-origin-resource-sharing/',
+    'https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS',
+  ]}
+/>

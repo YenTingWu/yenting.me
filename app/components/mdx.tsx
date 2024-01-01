@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Divider } from '@components/divider';
 import { Table } from '@components/table';
+import { Reference } from '@components/reference';
 import { rubik } from '@/fonts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { highlight } from 'sugar-high';
@@ -94,6 +95,7 @@ const components = {
   Image: StyledImage,
   Table,
   Divider,
+  Reference,
 };
 
 export const CustomMDX = (props: MDXRemoteProps) => {
