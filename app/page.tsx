@@ -32,15 +32,16 @@ export default function Home() {
         )}
       >
         <Header />
-        <article className={clsx('w-full', 'mt-[16vh]')}>
-          <h2 className={clsx('sm:text-5xl', 'text-5xl', 'font-bold')}>
+        <article className={clsx('w-full', 'sm:mt-[16svh]', 'mt-[10svh]')}>
+          <h2 className={clsx('sm:text-5xl', 'text-4xl', 'font-bold')}>
             Hi, I&apos;m Yen-Ting Wu
           </h2>
           <div
             className={clsx(
               'mt-[3rem]',
               'mb-[2rem]',
-              '[&_p]:mt-[.5rem]',
+              'sm:[&_p]:mt-[.5rem]',
+              '[&_p]:mt-[.3rem]',
               '[&_p]:text-lg',
               '[&_a]:underline'
             )}

@@ -11,6 +11,8 @@ export const ProjectListItem = ({ title, description, link }: ProjectProps) => {
     <li
       className={clsx(
         'flex',
+        'sm:flex-row',
+        'flex-col',
         'w-full',
         'items-start',
         'text-lg',
@@ -33,7 +35,8 @@ export const ProjectListItem = ({ title, description, link }: ProjectProps) => {
       </div>
       <div
         className={clsx(
-          'ml-10',
+          'sm:ml-10',
+          'max-sm:mt-2',
           'w-full',
           'before:content-["->"]',
           'before:mr-3'

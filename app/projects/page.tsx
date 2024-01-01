@@ -100,9 +100,6 @@ export default function Posts() {
               >
                 <div>
                   <Rough>{year}</Rough>
-                  {/* <div
-                    className={clsx('h-[1px]', 'w-[60px]', 'bg-stone-500')}
-                  /> */}
                 </div>
                 <ul className={clsx('mt-10', 'w-full')}>
                   {projects.map((project) => (
