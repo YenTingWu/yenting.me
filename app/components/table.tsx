@@ -58,26 +58,27 @@ export const Table = ({ colTitles, rowTitles, rows }: TableProps) => {
           </tr>
         </thead>
         <tbody className={clsx('bg-slate-100')}>
-          {newRows.map((row) => {
+          {newRows.map((row, rowIndex) => {
             return (
               <tr key={JSON.stringify(row)}>
-                {row.map(({ content, isHeader }) =>
-                  isHeader ? (
+                {row.map(({ content, isHeader }, itemIndex) => {
+                  const key = `${colTitles[itemIndex - 1]}_${content}_${
+                    rowTitles?.[rowIndex] ?? ''
+                  }`;
+
+                  return isHeader ? (
                     <th
                       className={clsx('px-2', 'max-w-[330px]', 'w-[330px]')}
-                      key={`${content}_${isHeader}`}
+                      key={key}
                     >
                       {content}
                     </th>
                   ) : (
-                    <td
-                      key={`${content}_${isHeader}`}
-                      className={clsx('py-4', 'px-3')}
-                    >
+                    <td key={key} className={clsx('py-4', 'px-3')}>
                       {content}
                     </td>
-                  )
-                )}
+                  );
+                })}
               </tr>
             );
           })}
