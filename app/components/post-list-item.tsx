@@ -26,7 +26,7 @@ export const PostListItem = ({
     >
       <Link
         href={`/posts/${slug}`}
-        className={clsx('max-w-[278px]', 'w-full', 'text-xl')}
+        className={clsx('max-w-[430px]', 'w-full', 'sm:text-lg', 'text-base')}
       >
         {title}
       </Link>
@@ -35,7 +35,8 @@ export const PostListItem = ({
           'uppercase',
           rubik.className,
           'font-medium',
-          'text-sm',
+          'sm:text-sm',
+          'text-xs',
           'tracking-[3px]',
           'leading-5',
           'text-neutral-500'
