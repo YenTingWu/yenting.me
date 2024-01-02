@@ -10,7 +10,11 @@ export const Reference = ({ resources }: ReferenceProps) => (
     <ul>
       {resources.map((r) => (
         <li key={`${r}`}>
-          <a className={clsx('break-all')} href={r} target="_blank">
+          <a
+            className={clsx('break-all', 'underline')}
+            href={r}
+            target="_blank"
+          >
             {r}
           </a>
         </li>

@@ -13,3 +13,87 @@ Attacker which forces an end user to execute unwanted actions on a web app in wh
 - Admin users: CSRF attack can force admins to add new admin user, or in the worst case, run commands directly on the server
 
 Effective even when attacker can’t read the HTTP response
+
+### Demo
+
+[Github Repo](https://github.com/YenTingWu/web-security-001/tree/main/csrf)
+
+Let's say we have a bank web app, running on `localhost:4000`. After authenticated, users are able to transfer money to others. Meanwhile, we have another malicious website, running on `localhost:5000`. This malicious site sends a request while the user is unconscious and unexpected.
+
+#### The Whole Journey of Bank App
+
+1. Login
+
+<Image src="/csrf-demo-login.png" layout="responsive" />
+
+2. After authenticated, sessionId is stored inside cookies
+
+<Image src="/csrf-demo-home.png" layout="responsive" />
+
+3. Bob can transfer money to anyone he wants. Bob has $100 remained while Alice has $500 remained for now. Let's say he wants to transfer $100 to Alice
+
+<Image src="/csrf-demo-transfering.png" layout="responsive" />
+
+4. Bob has transfered $100 to Alice. Bob has $0 remained while Alice has $600 remained.
+
+<Image src="/csrf-demo-transfered.png" layout="responsive" />
+
+This is a journey for normal users. Users know and manually control each step we mentioned above.
+
+<Divider />
+
+#### So how does a malicious site do when they want to steal money from Bob?
+
+Here is a situation. While Bob logined to the bank account, he was casually browsing another site called **Cool Site**. Bob was distracted by the cat wrapped inside a taco. It's so cute and charming. After a couple minute, he realized he needed to transfer money to other people, so he navigated back to the bank site. And He found the amount of his balance was weird, why was it $100 less than the amount he saw a couple minute ago? He thought the site had a bug and refreshed it. But the balance still didn't change back. How does this happen?
+
+<Image src="/csrf-demo-attack.png" layout="responsive" />
+
+#### Cross-Site Sending Request
+
+The malicious site sends a request from its site (different origins). The site has a piece of code below.
+
+```html attacker.html
+<form method="POST" action="http://localhost:4000/transfer">
+  <input name="amount" value="100" />
+  <input name="to" value="alice" />
+  <input type="submit" value="send" />
+</form>
+<script>
+  console.log(document.cookie);
+  document.forms[0].submit();
+</script>
+```
+
+The code sends a **POST** request to **`http://localhost:4000/transfer`** automatically everytimes the user visits the site.
+
+```bash
+POST / HTTP/1.1
+Host: http://localhost:4000/transfer
+Cookie: M07m8UN%2FqfBh0bPKZfwbdA%3D%3D;
+
+amount=100&to=alice
+```
+
+Since the request has credential and the body, it's a valid request and will be executed.
+
+#### Can we prevent cookies being sent with requests initiated from different origins?
+
+The answer is yes, we can prevent it by using the **SameSite** attibute of cookies.
+
+If **SameSite=Lax** or **SameSite=Strict** is set, the cookies will not be accessed by different origin's requests. If you are interested the SameSite attribute, [here is more details](/posts/web-security-101-cookie-attributes#samesite).
+
+<Divider />
+
+#### 👻👻 Chrome's Cookies Status
+
+- [July 22, 2022 (chrome 85) - Reject insecure SameSite=None cookies](https://developer.chrome.com/blog/chrome-85-deps-rems)
+- [July 14, 2020 (chrome 76) - Cookies default to SameSite=Lax](https://chromestatus.com/feature/5088147346030592)
+
+<Reference
+  resources={[
+    'https://chromestatus.com/feature/5088147346030592',
+    'https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS',
+    'https://stackoverflow.com/questions/60117726/how-to-reduce-samesite-cookie-attribute-back-to-none-in-asp-net',
+    'https://owasp.org/www-community/attacks/csrf',
+  ]}
+/>

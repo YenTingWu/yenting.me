@@ -18,15 +18,24 @@ type ComponentPropsType = React.DetailedHTMLProps<
 const CustomLink = (props: any) => {
   const { href, ...rest } = props;
 
+  const className = clsx('underline', props.className);
+
   if (href.startsWith('/')) {
-    return <Link href={href} {...rest} />;
+    return <Link className={className} href={href} {...rest} />;
   }
 
   if (href.startsWith('#')) {
-    return <a {...props} />;
+    return <a className={className} {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a
+      className={className}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  );
 };
 
 const Code = ({ children, ...props }: ComponentPropsType) => {
@@ -39,6 +48,8 @@ const StyledImage = (props: React.ComponentProps<typeof Image>) => {
   return (
     // eslint-disable-next-line jsx-a11y/alt-text
     <Image
+      width={props.width ?? 662}
+      height={props.height ?? 600}
       {...props}
       className={clsx('rounded', 'my-5', 'shadow-sm', props.className)}
     />
