@@ -24,19 +24,19 @@ Let's say we have a bank web app, running on `localhost:4000`. After authenticat
 
 1. Login
 
-<Image src="/csrf-demo-login.png" layout="responsive" />
+<Image src="/csrf-demo-login.png" />
 
 2. After authenticated, sessionId is stored inside cookies
 
-<Image src="/csrf-demo-home.png" layout="responsive" />
+<Image src="/csrf-demo-home.png" />
 
 3. Bob can transfer money to anyone he wants. Bob has $100 remained while Alice has $500 remained for now. Let's say he wants to transfer $100 to Alice
 
-<Image src="/csrf-demo-transfering.png" layout="responsive" />
+<Image src="/csrf-demo-transfering.png" />
 
 4. Bob has transfered $100 to Alice. Bob has $0 remained while Alice has $600 remained.
 
-<Image src="/csrf-demo-transfered.png" layout="responsive" />
+<Image src="/csrf-demo-transfered.png" />
 
 This is a journey for normal users. Users know and manually control each step we mentioned above.
 
@@ -46,7 +46,7 @@ This is a journey for normal users. Users know and manually control each step we
 
 Here is a situation. While Bob logined to the bank account, he was casually browsing another site called **Cool Site**. Bob was distracted by the cat wrapped inside a taco. It's so cute and charming. After a couple minute, he realized he needed to transfer money to other people, so he navigated back to the bank site. And He found the amount of his balance was weird, why was it $100 less than the amount he saw a couple minute ago? He thought the site had a bug and refreshed it. But the balance still didn't change back. How does this happen?
 
-<Image src="/csrf-demo-attack.png" layout="responsive" />
+<Image src="/csrf-demo-attack.png" />
 
 #### Cross-Site Sending Request
 
@@ -81,6 +81,17 @@ Since the request has credential and the body, it's a valid request and will be 
 The answer is yes, we can prevent it by using the **SameSite** attibute of cookies.
 
 If **SameSite=Lax** or **SameSite=Strict** is set, the cookies will not be accessed by different origin's requests. If you are interested the SameSite attribute, [here is more details](/posts/web-security-101-cookie-attributes#samesite).
+
+<Divider />
+
+### Notice
+
+In chrome, the demo above only works in the same origin nowadays because of the change of the policy. Now chrome has two default setting
+
+- Cookies default to `SameSite=Lax`
+- All `SameSite=None` cookies are not allowed to be set
+
+Check [Chrome Status](/posts/web-security-101-what-is-CSRF#-chromes-cookies-status) below to follow the latest information.
 
 <Divider />
 

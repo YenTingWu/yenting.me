@@ -45,14 +45,27 @@ const Code = ({ children, ...props }: ComponentPropsType) => {
 };
 
 const StyledImage = (props: React.ComponentProps<typeof Image>) => {
+  props.src;
+
   return (
-    // eslint-disable-next-line jsx-a11y/alt-text
-    <Image
-      width={props.width ?? 662}
-      height={props.height ?? 600}
-      {...props}
-      className={clsx('rounded', 'my-5', 'shadow-sm', props.className)}
-    />
+    <a href={props.src as string} target="_blank">
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
+      <Image
+        width={props.width ?? 1000}
+        height={props.height ?? 600}
+        {...props}
+        quality={100}
+        // layout="responsive"
+        className={clsx(
+          'rounded',
+          'my-5',
+          'shadow-sm',
+          'w-[auto]',
+          'h-[auto]',
+          props.className
+        )}
+      />
+    </a>
   );
 };
 
