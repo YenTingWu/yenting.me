@@ -1,6 +1,7 @@
 import './globals.css';
-import type { Metadata } from 'next';
 import { inter } from './fonts';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://yenting.me'),
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
+      <GoogleAnalytics gaId="G-3Q86STLNWS" />
     </html>
   );
 }
