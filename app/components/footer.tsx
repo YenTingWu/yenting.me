@@ -11,10 +11,6 @@ const data = [
     title: 'email',
     link: 'mailTo:a9600125a@gmail.com',
   },
-  {
-    title: 'substack',
-    link: 'https://thesambardeer.substack.com',
-  },
 ];
 
 export const Footer = () => {
