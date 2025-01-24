@@ -45,7 +45,7 @@ export default function Home() {
             <h2 className={clsx('sm:text-4xl', 'text-3xl', 'font-bold')}>
               Hi, I&apos;m Yen-Ting Wu
             </h2>
-            <ContactInfos className="mt-2" />
+            <ContactInfos className="mt-3" />
           </div>
         </article>
       </main>
