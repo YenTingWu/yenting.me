@@ -1,6 +1,7 @@
 import './globals.css';
 import { inter } from './fonts';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>{children}</body>
       <GoogleAnalytics gaId="G-3Q86STLNWS" />
+      <SpeedInsights />
     </html>
   );
 }
