@@ -1,6 +1,7 @@
 import { ContactInfos } from '@components/contact-infos';
 import { clsx } from 'clsx';
 import { increaseView } from './db/mutations';
+import { BilingualText } from './components/bilingual-text';
 
 export default function Home() {
   if (process.env.NODE_ENV === 'production') {
@@ -43,7 +44,14 @@ export default function Home() {
         >
           <div className="flex flex-col max-w-[500px] flex-start">
             <h2 className={clsx('sm:text-4xl', 'text-3xl', 'font-bold')}>
-              Hi, I&apos;m Yen-Ting Wu
+              Hi, I&apos;m{' '}
+              <BilingualText
+                textList={[
+                  { main: 'Yen', sub: '彥' },
+                  { main: '-Ting', sub: '廷' },
+                  { main: ' Wu', sub: '吳' },
+                ]}
+              />
             </h2>
             <ContactInfos className="mt-3" />
           </div>
