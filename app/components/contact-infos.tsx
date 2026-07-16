@@ -6,16 +6,12 @@ const data = [
     link: 'https://github.com/YenTingWu',
   },
   {
-    title: 'resume',
-    link: 'https://resume.yenting.me',
-  },
-  {
     title: 'email',
     link: 'mailTo:a9600125a@gmail.com',
   },
   {
-    title: 'bluesky',
-    link: 'https://bsky.app/profile/yenwu.bsky.social',
+    title: 'x',
+    link: 'https://x.com/YenTingWu',
   },
 ];
 
