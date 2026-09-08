@@ -1,7 +1,8 @@
 import './globals.css';
-import { inter } from './fonts';
+import { geistSans, geistMono, geistPixelSquare } from './fonts';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { clsx } from 'clsx';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -32,7 +33,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={clsx(
+          geistMono.className,
+          geistSans.variable,
+          geistMono.variable,
+          geistPixelSquare.variable
+        )}
+      >
+        {children}
+      </body>
       <GoogleAnalytics gaId="G-3Q86STLNWS" />
       <SpeedInsights />
     </html>
