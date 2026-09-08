@@ -21,15 +21,18 @@ interface ContactInfosProps {
 
 export const ContactInfos = ({ className }: ContactInfosProps) => {
   return (
-    <div className={clsx('w-full mt-[.25rem]', className)}>
+    <div
+      className={clsx(
+        'w-full mt-1 flex items-center sm:gap-3 gap-2 ml-3',
+        className
+      )}
+    >
       {data.map(({ title, link }) => (
         <a
           key={title}
           href={link}
           target="_blank"
-          className={clsx(
-            'hover:underline sm:[&:not(:first-child)]:ml-3  [&:not(:first-child)]:ml-2 text-sm text-neutral-500'
-          )}
+          className={clsx('hover:underline text-sm text-neutral-500')}
         >
           {title}
         </a>
