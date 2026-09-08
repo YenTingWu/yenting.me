@@ -76,7 +76,7 @@ export default async function Post({ params }: PostPageProps) {
         <Header />
         <View postId={`${slug}_${publishedAt}`} />
 
-        <main className={clsx('max-w-[780px]', 'sm:py-20', 'py-8', 'w-full')}>
+        <main className={clsx('max-w-195', 'sm:py-20', 'py-8', 'w-full')}>
           <div className={clsx('mb-10', rubik.className)}>
             <h1
               className={clsx(
@@ -95,7 +95,7 @@ export default async function Post({ params }: PostPageProps) {
 
             {image ? (
               <Image
-                className={clsx('rounded-sm', 'mb-20', 'shadow')}
+                className={clsx('rounded-xs', 'mb-20', 'shadow-sm')}
                 src={image}
                 width={780}
                 height={400}

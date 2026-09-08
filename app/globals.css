@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 /**
  * Types that sugar-high have:
@@ -130,7 +128,7 @@ header .header-link:hover {
 }
 
 pre {
-  @apply px-3 py-5 my-4 rounded text-sm leading-6;
+  @apply px-3 py-5 my-4 rounded-sm text-sm leading-6;
   background-color: #f6f8fa;
 }
 

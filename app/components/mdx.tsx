@@ -57,9 +57,9 @@ const StyledImage = (props: React.ComponentProps<typeof Image>) => {
         quality={100}
         // layout="responsive"
         className={clsx(
-          'rounded',
+          'rounded-sm',
           'my-5',
-          'shadow-sm',
+          'shadow-xs',
           'w-[auto]',
           'h-[auto]',
           props.className
