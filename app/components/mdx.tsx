@@ -123,5 +123,18 @@ const components = {
 };
 
 export const CustomMDX = (props: MDXRemoteProps) => {
-  return <MDXRemote {...props} components={{ ...components }} />;
+  return (
+    <MDXRemote
+      {...props}
+      components={{ ...components }}
+      options={{
+        // next-mdx-remote v6 strips JSX attribute expressions by default
+        // (blockJS), which would drop props like <Table rows={[...]} />.
+        // Posts in /contents are first-party, so expressions are allowed;
+        // blockDangerousJS stays on to reject eval/process/constructor access.
+        blockJS: false,
+        ...props.options,
+      }}
+    />
+  );
 };

@@ -10,14 +10,15 @@ import { rubik } from '@/fonts';
 import { View } from './view';
 
 interface GenerateMetadataProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: GenerateMetadataProps) {
+  const { slug } = await params;
   const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.slug);
+  const post = posts.find((post) => post.slug === slug);
 
   if (post == null) return;
 
@@ -30,14 +31,15 @@ export async function generateMetadata({ params }: GenerateMetadataProps) {
 }
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function Post({ params }: PostPageProps) {
+  const { slug: slugParam } = await params;
   const posts = await getPosts();
-  const post = posts.find((post) => post.slug === params.slug);
+  const post = posts.find((post) => post.slug === slugParam);
 
   if (post == null) {
     return notFound();
