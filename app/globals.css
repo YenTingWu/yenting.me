@@ -94,7 +94,7 @@ header .header-link:hover {
 }
 
 .post-content-container > p:not(:last-child) {
-  @apply mb-[1rem];
+  @apply mb-4;
 }
 
 .post-content-container ol > li {
@@ -106,7 +106,7 @@ header .header-link:hover {
 }
 
 .post-content-container li {
-  @apply mb-[0.5rem];
+  @apply mb-2;
   color: #555555;
 }
 

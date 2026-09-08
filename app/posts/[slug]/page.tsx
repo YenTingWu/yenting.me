@@ -69,7 +69,7 @@ export default async function Post({ params }: PostPageProps) {
           'mx-auto',
           'min-h-screen',
           'w-full',
-          'max-w-[760px]',
+          'max-w-190',
           'px-5'
         )}
       >

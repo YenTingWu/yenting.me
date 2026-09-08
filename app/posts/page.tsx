@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import { DateTime } from 'luxon';
 import { Header } from '@components/header';
 import { PostListItem } from '@components/post-list-item';
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default async function Posts() {
           'flex-col',
           'mx-auto',
           'min-h-screen',
-          'max-w-[760px]',
+          'max-w-190',
           'w-full',
           'px-5'
         )}

@@ -27,7 +27,7 @@ export default function Home() {
           'mx-auto',
           'min-h-screen',
           'h-full',
-          'max-w-[760px]',
+          'max-w-190',
           'w-full',
           'px-5'
         )}
@@ -42,7 +42,7 @@ export default function Home() {
             'items-center'
           )}
         >
-          <div className="flex flex-col max-w-[500px] flex-start">
+          <div className="flex flex-col max-w-125 flex-start">
             <h2 className={clsx('sm:text-4xl', 'text-3xl', 'font-bold')}>
               Hi, I&apos;m{' '}
               <BilingualText

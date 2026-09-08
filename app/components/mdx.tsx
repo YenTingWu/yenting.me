@@ -60,8 +60,8 @@ const StyledImage = (props: React.ComponentProps<typeof Image>) => {
           'rounded-sm',
           'my-5',
           'shadow-xs',
-          'w-[auto]',
-          'h-[auto]',
+          'w-auto',
+          'h-auto',
           props.className
         )}
       />
